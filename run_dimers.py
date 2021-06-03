@@ -165,9 +165,7 @@ if __name__ == '__main__':
 	dipole_coupling_energies = []
 	orient_coupling_energies = []
 
-	for residue in topology.residues():
-		if residue.name == "BCL":
-			bchla_residues.append(residue)
+
 
 	for enum, residue in enumerate(bchla_residues):
 		#xyz = "["

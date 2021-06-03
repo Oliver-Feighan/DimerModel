@@ -1,0 +1,12 @@
+#!/bin/bash -l 
+#PBS -l walltime=0:02:00
+#PBS -l select=1:ncpus=24:mem=1gb
+#PBS -N Bchla_trunc_bchla_16_bchla_17_frame_151
+#PBS -j oe
+
+cd ~/DimerModel/Bchla_xTB
+
+export OMP_NUM_THREADS=1
+export MKL_THREADING_LAYER=TBB
+
+~/.local/src/Qcore/release/qcore -n 18 Bchla_trunc_bchla_16_bchla_17_frame_151.in > Bchla_trunc_bchla_16_bchla_17_frame_151.out

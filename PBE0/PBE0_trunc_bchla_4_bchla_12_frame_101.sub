@@ -1,0 +1,12 @@
+#!/bin/bash -l 
+#PBS -l walltime=5:00:00
+#PBS -l select=1:ncpus=24:mem=185gb
+#PBS -N PBE0_trunc_bchla_4_bchla_12_frame_101
+#PBS -j oe
+
+cd ~/DimerModel/PBE0
+
+export OMP_NUM_THREADS=1
+export MKL_THREADING_LAYER=TBB
+
+~/.local/src/Qcore/release/qcore -n 18 PBE0_trunc_bchla_4_bchla_12_frame_101.in > PBE0_trunc_bchla_4_bchla_12_frame_101.out
