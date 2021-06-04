@@ -15,12 +15,12 @@
  Build type: Release
  Version:    1.4.1
 
- Start time: Fri Jun  4 11:40:24 2021
+ Start time: Fri Jun  4 13:33:59 2021
 
  Data directory: /home/of15641/.local/src/Qcore/release/share/entos/1.4.1/data
  Number of threads: 18
  Number of threads was determined by: command line argument
-  - More threads can be used by running 'qcore -n 24'
+  - More threads can be used by running 'qcore -n 32'
 
  --------------------------------------------------------------------------------
                                    command: td                                   
@@ -41,13 +41,13 @@
 
  Theory:                                 dft
  Exchange-correlation functional:        pbe0
- Method for Coulomb:                     incore_df
- Method for exact exchange:              pre_transformed_df
- Integral threshold:                     1.00e-12
- DF basis set:                           def2-universal-JKFIT
- Number of DF basis functions:        7852
- Schwarz screening threshold:            1.00e-10
- Coulomb fitting method:                 Cholesky
+ Method for Coulomb:                     direct_4idx
+ Method for exact exchange:              direct_4idx
+ Incremental Fock build is turned on.
+ Max incremental Fock build steps:      20
+ Integral threshold (initial):           1.00e-09
+ Integral threshold (final):             1.00e-12
+ Switching threshold (on density):       1.00e-04
  Total number of grid points:       1010844
  Method for AO orthogonalization:        symmetric
  Threshold for linear dependence:        1.00e-08
@@ -62,61 +62,61 @@
  Initial guess:                          SAD
  Theory:                                 dft
  Exchange-correlation functional:        pbe0
- Method for Coulomb:                     incore_df
- Method for exact exchange:              pre_transformed_df
- Integral threshold:                     1.00e-12
- DF basis set:                           def2-universal-JKFIT
- Number of DF basis functions:          75
- Schwarz screening threshold:            1.00e-10
- Coulomb fitting method:                 Cholesky
+ Method for Coulomb:                     direct_4idx
+ Method for exact exchange:              direct_4idx
+ Incremental Fock build is turned on.
+ Max incremental Fock build steps:      20
+ Integral threshold (initial):           1.00e-09
+ Integral threshold (final):             1.00e-12
+ Switching threshold (on density):       1.00e-04
  Total number of grid points:         6800
  Method for AO orthogonalization:        symmetric
  Threshold for linear dependence:        1.00e-08
  Theory:                                 dft
  Exchange-correlation functional:        pbe0
- Method for Coulomb:                     incore_df
- Method for exact exchange:              pre_transformed_df
- Integral threshold:                     1.00e-12
- DF basis set:                           def2-universal-JKFIT
- Number of DF basis functions:          18
- Schwarz screening threshold:            1.00e-10
- Coulomb fitting method:                 Cholesky
+ Method for Coulomb:                     direct_4idx
+ Method for exact exchange:              direct_4idx
+ Incremental Fock build is turned on.
+ Max incremental Fock build steps:      20
+ Integral threshold (initial):           1.00e-09
+ Integral threshold (final):             1.00e-12
+ Switching threshold (on density):       1.00e-04
  Total number of grid points:         5890
  Method for AO orthogonalization:        symmetric
  Threshold for linear dependence:        1.00e-08
  Theory:                                 dft
  Exchange-correlation functional:        pbe0
- Method for Coulomb:                     incore_df
- Method for exact exchange:              pre_transformed_df
- Integral threshold:                     1.00e-12
- DF basis set:                           def2-universal-JKFIT
- Number of DF basis functions:         112
- Schwarz screening threshold:            1.00e-10
- Coulomb fitting method:                 Cholesky
+ Method for Coulomb:                     direct_4idx
+ Method for exact exchange:              direct_4idx
+ Incremental Fock build is turned on.
+ Max incremental Fock build steps:      20
+ Integral threshold (initial):           1.00e-09
+ Integral threshold (final):             1.00e-12
+ Switching threshold (on density):       1.00e-04
  Total number of grid points:         7206
  Method for AO orthogonalization:        symmetric
  Threshold for linear dependence:        1.00e-08
  Theory:                                 dft
  Exchange-correlation functional:        pbe0
- Method for Coulomb:                     incore_df
- Method for exact exchange:              pre_transformed_df
- Integral threshold:                     1.00e-12
- DF basis set:                           def2-universal-JKFIT
- Number of DF basis functions:          77
- Schwarz screening threshold:            1.00e-10
- Coulomb fitting method:                 Cholesky
+ Method for Coulomb:                     direct_4idx
+ Method for exact exchange:              direct_4idx
+ Incremental Fock build is turned on.
+ Max incremental Fock build steps:      20
+ Integral threshold (initial):           1.00e-09
+ Integral threshold (final):             1.00e-12
+ Switching threshold (on density):       1.00e-04
  Total number of grid points:         6800
  Method for AO orthogonalization:        symmetric
  Threshold for linear dependence:        1.00e-08
  Theory:                                 dft
  Exchange-correlation functional:        pbe0
- Method for Coulomb:                     incore_df
- Method for exact exchange:              pre_transformed_df
- Integral threshold:                     1.00e-12
- DF basis set:                           def2-universal-JKFIT
- Number of DF basis functions:          77
- Schwarz screening threshold:            1.00e-10
- Coulomb fitting method:                 Cholesky
+ Method for Coulomb:                     direct_4idx
+ Method for exact exchange:              direct_4idx
+ Incremental Fock build is turned on.
+ Max incremental Fock build steps:      20
+ Integral threshold (initial):           1.00e-09
+ Integral threshold (final):             1.00e-12
+ Switching threshold (on density):       1.00e-04
  Total number of grid points:         6944
  Method for AO orthogonalization:        symmetric
  Threshold for linear dependence:        1.00e-08
@@ -124,6 +124,50 @@
  ---------------------------------------------------------------
                   energy        change          grad        time
  ---------------------------------------------------------------
-   0     -4088.972304867                    2.12e+01       80.71
-   1     -4066.035783951      2.29e+01      1.97e+00       46.05
-   2     -4064.812650343      1.22e+00      5.01e+00       44.09
+   0     -4088.971172759                    2.12e+01       24.47
+   1     -4066.035201561      2.29e+01      1.97e+00       58.50
+   2     -4064.812047848      1.22e+00      5.01e+00       54.27
+   3     -4067.183165227     -2.37e+00      7.90e-01       51.37
+   4     -4066.826904404      3.56e-01      1.96e+00       50.75
+   5     -4067.294264906     -4.67e-01      2.96e-01       47.81
+   6     -4067.273794705      2.05e-02      5.96e-01       45.65
+   7     -4067.302689507     -2.89e-02      3.84e-01       44.55
+   8     -4067.310548912     -7.86e-03      2.89e-01       43.66
+   9     -4067.316948205     -6.40e-03      9.81e-02       41.03
+  10     -4067.317284413     -3.36e-04      7.63e-02       94.69
+  11     -4067.318286705     -1.00e-03      5.37e-03       67.76
+  12     -4067.318288027     -1.32e-06      1.50e-03       53.29
+  13     -4067.318288201     -1.74e-07      8.66e-04       50.15
+  14     -4067.318288269     -6.83e-08      3.21e-04       46.23
+  15     -4067.318288280     -1.10e-08      1.31e-04       42.47
+  16     -4067.318288274      5.51e-09      1.02e-04       38.52
+  17     -4067.318288273      8.50e-10      2.33e-05       35.04
+  18     -4067.318288276     -3.08e-09      1.54e-05       31.89
+  19     -4067.318288276      4.11e-10      8.41e-06       29.96
+
+ SCF converged in 19 iterations.
+
+ Dipole moment (in Debye):               4.752306      -1.260398       6.702128
+
+ Quadrupole moment (in Debye-Angstrom):
+                  1            2            3
+ 1      -521.478610    75.451846    18.647199
+ 2        75.451846  -468.579401     7.577184
+ 3        18.647199     7.577184  -501.324022
+
+ Spin-squared expectation <S^2>:         0.000
+ Total spin quantum number S:            0.000
+
+ --------------------------------------------------
+ iter  root      eigenvalue    residual        time
+ --------------------------------------------------
+    1    1        0.064407    4.54e-03
+         2        0.076392    4.38e-03
+         3        0.093211    6.04e-03
+         4        0.093881    6.60e-02
+         5        0.095554    6.34e-02     1108.86
+    2    1        0.064260    9.67e-03
+         2        0.072348    2.78e-02
+         3        0.076301    5.18e-03
+         4        0.081714    2.30e-02
+         5        0.092901    2.10e-02      306.94
