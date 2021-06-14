@@ -1,0 +1,12 @@
+#!/bin/bash -l 
+#PBS -l walltime=0:02:00
+#PBS -l select=1:ncpus=4:mem=1gb
+#PBS -N Bchla_dimer_sep_73
+#PBS -j oe
+
+cd ~/DimerModel/Bchla_xTB
+
+export OMP_NUM_THREADS=1
+export MKL_THREADING_LAYER=TBB
+
+~/.local/src/Qcore/release/qcore -n 18 Bchla_dimer_sep_73.in > Bchla_dimer_sep_73.out
