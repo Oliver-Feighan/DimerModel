@@ -11,8 +11,18 @@ def read_monomer_Bchla_xTB_file(file_name):
 
     transition_charge_line = None
     
+    homo_lumo = False
+    
     for enum, line in enumerate(output_file):
+        if "Excitation 0 1" in line:
+            homo_lumo = True
         
+        if "Excitation 0 2" in line:
+            homo_lumo = False
+    
+        if not homo_lumo:
+            continue
+            
         if "Excitation energy:" in line:
             energy = float(re.findall(r'-?\d+\.\d+', line)[0])
         elif "Transition dipole" in line:

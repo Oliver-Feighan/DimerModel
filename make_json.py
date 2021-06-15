@@ -8,17 +8,25 @@ import matplotlib.pyplot as plt
 import read_tddft
 import read_Bchla_xTB
 
+def test():
+    print("tes")
+
 class Structure:
     Na_index = 14
     Nc_index = 31
 
-    def __init__(self, bchla, frame):
+    def __init__(self, bchla, frame, given_file_name = ""):
         self.symbols = []
         self.coords = []
         
         angstrom_to_bohr = 1.88973
-        
-        file_name = f"monomer_xyzs/trunc_bchla_{bchla}_frame_{frame}.xyz"
+                
+        file_name = None
+            
+        if given_file_name != "":
+            file_name = given_file_name
+        else:
+            file_name = f"monomer_xyzs/trunc_bchla_{bchla}_frame_{frame}.xyz"
         
         lines = list(open(file_name))
         lines = lines[2:]
