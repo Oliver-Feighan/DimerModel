@@ -1,0 +1,12 @@
+#!/bin/bash -l 
+#PBS -l walltime=5:00:00
+#PBS -l select=1:ncpus=6:mem=85gb
+#PBS -N BLYP_dimer_angle_261
+#PBS -j oe
+
+cd ~/DimerModel/Scans/AngleScans/BLYP
+
+export OMP_NUM_THREADS=1
+export MKL_THREADING_LAYER=TBB
+
+~/.local/src/Qcore/release/qcore -n 4 BLYP_dimer_angle_261.in > BLYP_dimer_angle_261.out
