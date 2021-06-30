@@ -1,0 +1,12 @@
+#!/bin/bash -l 
+#PBS -l walltime=5:00:00
+#PBS -l select=1:ncpus=24:mem=185gb
+#PBS -N HF_monomer_angle_360
+#PBS -j oe
+
+cd ~/DimerModel/Scans/AngleScans/
+
+export OMP_NUM_THREADS=1
+export MKL_THREADING_LAYER=TBB
+
+~/.local/src/Qcore/release/qcore -n 18 HF_monomer_angle_360.in > HF_monomer_angle_360.out

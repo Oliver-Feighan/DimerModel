@@ -4,9 +4,9 @@
 #PBS -N Bchla_monomer_angle_232
 #PBS -j oe
 
-cd ~/DimerModel/Scans/AngleScans/Bchla_xTB
+cd ~/DimerModel/Scans/AngleScans
 
 export OMP_NUM_THREADS=1
 export MKL_THREADING_LAYER=TBB
 
-~/.local/src/Qcore/release/qcore -n 18 Bchla_monomer_angle_232.in > Bchla_monomer_angle_232.out
+~/.local/src/Qcore/release/qcore -n 2 Bchla_monomer_angle_232.in > Bchla_monomer_angle_232.out
