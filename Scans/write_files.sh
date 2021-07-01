@@ -18,8 +18,8 @@ done
 for angle in $(cd angle_xyzs; ls *.xyz; cd ../); do
     echo ${angle}
 
-    sed "s/NAME/..\/..\/angle_xyzs\/${angle/.xyz/}/g" Bchla_template.in > AngleScans/Bchla_xTB/Bchla_${angle/.xyz/}.in
-    sed "s/NAME/${angle/.xyz/}/g" Bchla_template.sub > AngleScans/Bchla_xTB/Bchla_${angle/.xyz/}.sub
+    #sed "s/NAME/..\/..\/angle_xyzs\/${angle/.xyz/}/g" Bchla_template.in > AngleScans/Bchla_xTB/Bchla_${angle/.xyz/}.in
+    #sed "s/NAME/${angle/.xyz/}/g" Bchla_template.sub > AngleScans/Bchla_xTB/Bchla_${angle/.xyz/}.sub
 
     #sed "s/NAME/..\/..\/angle_xyzs\/${angle/.xyz/}/g" CAMB3LYP_template.in > AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.in
     #sed "s/NAME/${angle/.xyz/}/g" CAMB3LYP_template.sub > AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.sub
@@ -31,6 +31,6 @@ for angle in $(cd angle_xyzs; ls *.xyz; cd ../); do
 
     sed "s/NAME/..\/..\/angle_xyzs\/${angle/.xyz/}/g" HF_template.in > AngleScans/HF/HF_${angle/.xyz/}.in
     sed "s/NAME/${angle/.xyz/}/g" HF_template.sub > AngleScans/HF/HF_${angle/.xyz/}.sub
-    sed -i -e "s/DimerModel\/HF/DimerModel\/Scans\/AngleScans\/HF/" AngleScans/HF/HF_${angle/.xyz/}.sub
+    #sed -i -e "s/DimerModel\/HF/DimerModel\/Scans\/AngleScans\/HF/" AngleScans/HF/HF_${angle/.xyz/}.sub
 
 done
