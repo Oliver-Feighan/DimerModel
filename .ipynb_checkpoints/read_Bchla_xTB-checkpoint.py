@@ -1,58 +1,78 @@
 import numpy as np
 import re
 
+import data_objects
+
 def read_monomer_Bchla_xTB_file(file_name):
     output_file = list(open(file_name))
+        
+    total_energy = None
+    molecular_dipole = []
+    partial_charges = []
     
-    energy = None
-    tdm = None
+    transition_energy = None
+    transition_dipole = []
     transition_charges = []
-    is_here = None
-
-    transition_charge_line = None
     
-    homo_lumo = False
+    excited_molecular_dipole = []
+    excited_partial_charges = []
+    
     
     for enum, line in enumerate(output_file):
-        if "Excitation 0 1" in line:
-            homo_lumo = True
+        if "res.energy" in line:
+            total_energy = float(re.findall(r'-?\d+\.\d+', line)[0])
         
-        if "Excitation 0 2" in line:
-            homo_lumo = False
-    
-        if not homo_lumo:
-            continue
+        elif "res.atomic_charges" in line:            
+            for charge_line in output_file[enum+2:enum+2+79]: #2 for the lines until the charge list, 79 for the number of atoms
+                partial_charges.append(float(re.findall(r'-?\d+\.\d+', charge_line)[0]))
+        
+        elif "res.dipole" in line:
+            for dipole_line in output_file[enum+2:enum+2+3]:
+                molecular_dipole.append(float(re.findall(r'-?\d+\.\d+', dipole_line)[0]))
+        
+        elif "res.excitation_1_energy" in line:
+            transition_energy = float(re.findall(r'-?\d+\.\d+', line)[0])
             
-        if "Excitation energy:" in line:
-            energy = float(re.findall(r'-?\d+\.\d+', line)[0])
-        elif "Transition dipole" in line:
-            tdm = np.array([float(x) for x in re.findall(r'-?\d+\.\d+', line)])
-        elif "transition charges and positions" in line:
-            transition_charge_line = enum
+        elif "res.excitation_1_transition_dipole" in line:
+            for transition_dipole_line in output_file[enum+1:enum+1+3]:
+                transition_dipole.append(float(re.findall(r'-?\d+\.\d+', transition_dipole_line)[0]))
         
-        if transition_charge_line is not None:
-            if enum > transition_charge_line+3 and len(transition_charges) < 79:
-                transition_charges.append(float(re.findall(r'-?\d+\.\d+', line)[0]))
+        elif "res.excitation_1_transition_charges" in line:
+            for transition_charges_line in output_file[enum+2:enum+2+79]:
+                transition_charges.append(float(re.findall(r'-?\d+\.\d+', transition_charges_line)[0]))
                 
-         
-            
-    is_here = energy is not None and tdm is not None
-            
-    return (is_here, energy, tdm, transition_charges)
-
+        elif "res.excitation_1_excited_dipole" in line:
+            for excited_dipole_line in output_file[enum+1:enum+1+3]:
+                excited_molecular_dipole.append(float(re.findall(r'-?\d+\.\d+', excited_dipole_line)[0]))
+        
+        elif "res.excitation_1_excited_atomic_charges" in line:
+            for excited_charges_line in output_file[enum+2:enum+2+79]:
+                excited_partial_charges.append(float(re.findall(r'-?\d+\.\d+', excited_charges_line)[0]))
+                    
+    return data_objects.MonomerResult(total_energy, molecular_dipole, partial_charges, transition_energy, transition_dipole, transition_charges, excited_molecular_dipole, excited_partial_charges)
+    
 def read_dimer_Bchla_xTB_file(file_name):
     output_file = list(open(file_name))
+    
+    total_energy = None
     
     energies = []
     tdms = []
     is_here = None
     
     for enum, line in enumerate(output_file):
-        if "Excitation energy:" in line:
+        if "res.energy" in line:
+            total_energy = float(re.findall(r'-?\d+\.\d+', line)[0])
+        
+        if re.search("res.excitation_\d_energy", line):
             energies.append(float(re.findall(r'-?\d+\.\d+', line)[0]))
-        elif "Transition dipole" in line:
-            tdms.append(np.array([float(x) for x in re.findall(r'-?\d+\.\d+', line)]))
+        elif re.search("res.excitation_\d_transition_dipole", line):
+            tdm = []
+            for transition_dipole_line in output_file[enum+1:enum+1+3]:
+                tdm.append(float(re.findall(r'-?\d+\.\d+', transition_dipole_line)[0]))
+                
+            tdms.append(tdm)
             
     is_here = energies and tdms
             
-    return (is_here, energies, tdms)
+    return data_objects.DimerResult(total_energy, energies, tdms)

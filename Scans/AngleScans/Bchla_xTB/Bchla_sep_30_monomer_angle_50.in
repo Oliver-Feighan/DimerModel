@@ -1,4 +1,4 @@
-xtb(
+res := xtb(
     structure(file = '../../angle_xyzs/sep_30_monomer_angle_50.xyz')
     model = 'chlorophyll'
     excitations=[
@@ -8,3 +8,26 @@ xtb(
                     [-1,2]
     ]
 )
+
+print(load = res variable = energy)
+print(load = res variable = dipole)
+print(load = res variable = atomic_charges)
+
+print(load = res variable = excitation_1_energy)
+print(load = res variable = excitation_1_transition_dipole)
+print(load = res variable = excitation_1_transition_charges)
+
+print(load = res variable = excitation_1_excited_dipole)
+print(load = res variable = excitation_1_excited_atomic_charges)
+
+print(load = res variable = excitation_2_energy)
+print(load = res variable = excitation_2_transition_dipole)
+print(load = res variable = excitation_2_transition_charges)
+
+print(load = res variable = excitation_3_energy)
+print(load = res variable = excitation_3_transition_dipole)
+print(load = res variable = excitation_3_transition_charges)
+
+print(load = res variable = excitation_4_energy)
+print(load = res variable = excitation_4_transition_dipole)
+print(load = res variable = excitation_4_transition_charges)

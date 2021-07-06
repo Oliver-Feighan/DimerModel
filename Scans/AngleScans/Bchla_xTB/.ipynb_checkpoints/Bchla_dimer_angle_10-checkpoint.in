@@ -1,0 +1,21 @@
+res := xtb(
+    structure(file = '../../angle_xyzs/dimer_angle_10.xyz')
+    model = 'chlorophyll'
+    excitations=[
+                    [0, 1],
+                    [-1,1],
+                    [0, 2],
+                    [-1,2]
+    ]
+)
+
+print(load = res variable = energy)
+print(load = res variable = dipole)
+print(load = res variable = atomic_charges)
+
+print(load = res variable = excitation_1_energy)
+print(load = res variable = excitation_1_transition_dipole)
+print(load = res variable = excitation_1_transition_charges)
+
+print(load = res variable = excitation_1_excited_dipole)
+print(load = res variable = excitation_1_excited_atomic_charges)
