@@ -43,7 +43,7 @@ def switch_coupling_func(coupling):
 def state_hamiltonian(results, structures, coupling):
     assert(len(results) == len(structures))
     
-    assert(coupling == "dipole" or coupling == "charges")
+    assert(coupling == "dipole" or coupling == "charges" or coupling == "off")
         
     n_sites = len(structures)
     n_states = n_sites + 1
@@ -73,7 +73,7 @@ def state_hamiltonian(results, structures, coupling):
                             else:
                                 if coupling == "dipole":
                                     interaction += dipole_coupling(results[m].molecular_dipole, results[n].molecular_dipole, structures[m], structures[n])
-                                elif coupling == "charges":
+                                elif coupling == "charges" or coupling == "off":
                                     interaction += charge_coupling(results[m].partial_charges, results[n].partial_charges, structures[m], structures[n])
                                     
                     hamiltonian[i][j] = energy + interaction
@@ -88,7 +88,7 @@ def state_hamiltonian(results, structures, coupling):
                         else:
                             if coupling == "dipole":
                                 interaction += dipole_coupling(results[i-1].excited_molecular_dipole, results[n].molecular_dipole, structures[i-1], structures[n])
-                            elif coupling == "charges":
+                            elif coupling == "charges" or coupling == "off":
                                 interaction += charge_coupling(results[i-1].excited_partial_charges, results[n].partial_charges, structures[i-1], structures[n])
                             
                     for m in range(n_sites):
@@ -100,7 +100,7 @@ def state_hamiltonian(results, structures, coupling):
                             else: 
                                 if coupling == "dipole":
                                     interaction += dipole_coupling(results[m].molecular_dipole, results[n].molecular_dipole, structures[m], structures[n])
-                                elif coupling == "charges":
+                                elif coupling == "charges" or coupling == "off":
                                     interaction += charge_coupling(results[m].partial_charges, results[n].partial_charges, structures[m], structures[n])
                     
                     hamiltonian[i][j] = energy + interaction

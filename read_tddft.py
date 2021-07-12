@@ -1,5 +1,6 @@
 import re
 import numpy as np
+import data_objects
 
 def read_monomer_TDDFT_file(file_name):    
     output_file = list(open(file_name))
@@ -55,15 +56,16 @@ def read_monomer_TDDFT_file(file_name):
 def read_dimer_TDDFT_file(file_name):    
     output_file = list(open(file_name))
                 
-    energy = None
-    tdm = None
-    is_here = True
+    total_energy = 0
     
     excited_state_lines = []
     transition_dipole_start = None
     oscillator_strength_start = None
 
     for enum, line in enumerate(output_file):
+        if "Total ENERGY" in line:
+            total_energy = re.findall(r'-?\d+\.\d+', line)
+        
         if "Excited State" in line:
             excited_state_lines.append(enum)
             
@@ -72,10 +74,6 @@ def read_dimer_TDDFT_file(file_name):
             
         elif "Oscillator Strengths (a.u.):" in line:
             oscillator_strength_start = enum
-
-
-    if(len(excited_state_lines) == 0):
-        return (False, None, None)
 
     energies=[]
     tdms=[]
@@ -87,5 +85,4 @@ def read_dimer_TDDFT_file(file_name):
         tdms_str = re.findall(r'-?\d*\.\d*', output_file[transition_dipole_start+enum+2])
         tdms.append(np.array([float(x) for x in tdms_str]))
 
-    else:
-        return(is_here, energies, tdms)
+    return data_objects.DimerResult(total_energy, energies, tdms)
