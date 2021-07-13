@@ -1,3 +1,8 @@
+res := hf(
+	structure(file='../../angle_xyzs/sep_25_dimer_angle_87.xyz')
+	ao='sto-3g'
+)
+
 td(
 	structure(file='../../angle_xyzs/sep_25_dimer_angle_87.xyz')
 	hf(
@@ -5,3 +10,5 @@ td(
 	)
 	n_states = 4	
 )
+
+print(load = res variable = energy)
