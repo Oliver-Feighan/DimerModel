@@ -1,14 +1,54 @@
-res := hf(
-	structure(file='../../angle_xyzs/sep_15_dimer_angle_61.xyz')
+ground := hf(
+	structure(file = '../../angle_xyzs/sep_15_dimer_angle_61.xyz')
 	ao='sto-3g'
 )
 
-td(
+ground_mulliken := population(
+	load = ground
+	method = 'mulliken'
+)
+
+ground_lowdin := population(
+	load = ground
+	method = 'lowdin'
+)
+
+excited_mulliken := td(
 	structure(file='../../angle_xyzs/sep_15_dimer_angle_61.xyz')
 	hf(
 	ao='sto-3g'
 	)
-	n_states = 4	
+	n_states = 3	
+	transition_charges_method = 'mulliken'
+	
+	print_level = 2
+
+	excited_state_analysis(
+		population_method = 'mulliken'
+		dipoles = true
+	)
 )
 
-print(load = res variable = energy)
+excited_lowdin := td(
+	structure(file='../../angle_xyzs/sep_15_dimer_angle_61.xyz')
+	hf(
+	ao='sto-3g'
+	)
+
+	n_states = 3	
+	transition_charges_method = 'lowdin'
+
+	print_level = 2
+	
+	excited_state_analysis(
+		population_method = 'lowdin'
+		dipoles = true
+	)
+)
+
+print(load = ground_mulliken variable = 'charges')
+print(load = ground_lowdin variable = 'charges')
+print(load = excited_mulliken variable = 'transition_charges')
+print(load = excited_lowdin variable = 'transition_charges')
+print(load = excited_mulliken variable = 'excited_state_1_charges')
+print(load = excited_lowdin variable = 'excited_state_1_charges')

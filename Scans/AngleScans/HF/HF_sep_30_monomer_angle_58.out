@@ -9,14 +9,2070 @@
                                                                                 
 ====================================[ Qcore ]===================================
 
- Git hash:   ad9d0b24ea610736acb9cf13a2604964cd4d942e
- Git date:   Wed, 30 Jun 2021 12:42:56 +0100
+ Git hash:   bf1cb7671dadc1277d179c057ca62aa85b91c15a
+ Git date:   Fri, 23 Jul 2021 12:21:38 +0100
  Compiler:   GNU 9.1.0
  Build type: Release
- Version:    1.4.1
+ Version:    2.0.0
 
- Start time: Tue Jul  6 12:10:22 2021
+ Start time: Fri Jul 23 15:55:02 2021
 
- Data directory: /home/of15641/.local/src/Qcore/release/share/entos/1.4.1/data
- Number of threads: 4
+ Data directory: /home/of15641/.local/src/Qcore/release/share/entos/2.0.0/data
+ Number of threads: 20
  Number of threads was determined by: command line argument
+  - More threads can be used by running 'qcore -n 24'
+
+ --------------------------------------------------------------------------------
+                                   command: hf                                   
+ --------------------------------------------------------------------------------
+ AO basis set:                           sto-3g
+ Number of AO basis functions:         255
+
+ Formula:                                C34H36N4O4Mg
+ Nuclear charge:                       312.000000000
+ Total charge:                           0.000000000
+ Number of electrons:                  312.000000000
+
+ Number of alpha electrons:            156
+ Number of beta electrons:             156
+ Number of unpaired electrons:           0
+ Spin:                                   0
+ Multiplicity:                           singlet
+
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:        3926
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+
+ -------------------------------------
+  Running restricted closed-shell SCF 
+ -------------------------------------
+ Max number of iterations:             128
+ Conv. threshold (gradient):             1.00e-05
+ Conv. threshold (energy):               1.00e-06
+ Interpolation scheme:                   adiis+cdiis
+ Initial guess:                          SAD
+
+ ---------------------------------------------------------------
+                  energy        change          grad        time
+ ---------------------------------------------------------------
+   0     -2000.152172600                    9.60e+00        0.68
+   1     -1999.390862979      7.61e-01      1.45e+00        0.24
+   2     -1999.922449526     -5.32e-01      1.31e+00        0.24
+   3     -2000.081028946     -1.59e-01      6.18e-01        0.24
+   4     -2000.198218642     -1.17e-01      2.60e-01        0.24
+   5     -2000.204529918     -6.31e-03      1.58e-01        0.24
+   6     -2000.212924068     -8.39e-03      4.39e-02        0.25
+   7     -2000.213220376     -2.96e-04      3.96e-02        0.24
+   8     -2000.213598443     -3.78e-04      3.92e-03        0.25
+   9     -2000.213607782     -9.34e-06      2.32e-03        0.25
+  10     -2000.213611476     -3.69e-06      1.61e-03        0.25
+  11     -2000.213615328     -3.85e-06      1.34e-03        0.24
+  12     -2000.213618306     -2.98e-06      7.56e-04        0.24
+  13     -2000.213619479     -1.17e-06      3.95e-04        0.25
+  14     -2000.213619674     -1.95e-07      1.31e-04        0.25
+  15     -2000.213619691     -1.69e-08      8.45e-05        0.25
+  16     -2000.213619697     -6.35e-09      4.63e-05        0.25
+  17     -2000.213619700     -2.14e-09      3.30e-05        0.25
+  18     -2000.213619701     -1.23e-09      2.07e-05        0.25
+  19     -2000.213619701     -4.53e-10      1.25e-05        0.25
+  20     -2000.213619701     -1.51e-10      5.25e-06        0.25
+
+ SCF converged in 20 iterations.
+
+ Dipole moment (in Debye):              -1.093380       0.617046       2.724393
+
+ Quadrupole moment (in Debye-Angstrom):
+                  1            2            3
+ 1      -237.458709     4.656244     1.294761
+ 2         4.656244  -255.245198   -19.382610
+ 3         1.294761   -19.382610  -224.517672
+
+ Spin-squared expectation <S^2>:         0.000
+ Total spin quantum number S:            0.000
+ TOTAL ENERGY:                       -2000.213619701
+ Saving results in set 'ground'
+
+ --------------------------------------------------------------------------------
+                               command: population                               
+ --------------------------------------------------------------------------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 mulliken
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       10.8255        1.1745
+     2         C        6.0326       -0.0326
+     3         C        6.1085       -0.1085
+     4         C        6.1266       -0.1266
+     5         C        6.1100       -0.1100
+     6         N        7.3593       -0.3593
+     7         C        5.9054        0.0946
+     8         C        6.0400       -0.0400
+     9         C        6.0430       -0.0430
+    10         C        5.9187        0.0813
+    11         C        6.1857       -0.1857
+    12         C        6.1119       -0.1119
+    13         C        6.1162       -0.1162
+    14         H        0.9955        0.0045
+    15         N        7.4372       -0.4372
+    16         C        5.9257        0.0743
+    17         C        5.9940        0.0060
+    18         C        6.0633       -0.0633
+    19         C        5.9063        0.0937
+    20         C        6.1905       -0.1905
+    21         C        5.8251        0.1749
+    22         O        8.2295       -0.2295
+    23         C        6.2076       -0.2076
+    24         N        7.3741       -0.3741
+    25         C        5.9044        0.0956
+    26         C        6.0454       -0.0454
+    27         C        6.0350       -0.0350
+    28         C        5.9203        0.0797
+    29         C        6.1767       -0.1767
+    30         C        6.0984       -0.0984
+    31         C        6.1756       -0.1756
+    32         N        7.4128       -0.4128
+    33         C        5.9228        0.0772
+    34         C        5.9854        0.0146
+    35         C        6.0754       -0.0754
+    36         C        5.9173        0.0827
+    37         C        6.2036       -0.2036
+    38         C        5.8073        0.1927
+    39         O        8.2413       -0.2413
+    40         C        6.0906       -0.0906
+    41         C        5.6858        0.3142
+    42         O        8.2759       -0.2759
+    43         O        8.2344       -0.2344
+    44         C        6.0775       -0.0775
+    45         H        0.9414        0.0586
+    46         H        0.9245        0.0755
+    47         H        0.9413        0.0587
+    48         H        0.9358        0.0642
+    49         H        0.9403        0.0597
+    50         H        0.9315        0.0685
+    51         H        0.9335        0.0665
+    52         H        0.9363        0.0637
+    53         H        0.9401        0.0599
+    54         H        0.9280        0.0720
+    55         H        0.9485        0.0515
+    56         H        0.9524        0.0476
+    57         H        0.9345        0.0655
+    58         H        0.9374        0.0626
+    59         H        0.9302        0.0698
+    60         H        0.9204        0.0796
+    61         H        0.9196        0.0804
+    62         H        0.9284        0.0716
+    63         H        0.9354        0.0646
+    64         H        0.9455        0.0545
+    65         H        0.9405        0.0595
+    66         H        0.9384        0.0616
+    67         H        0.9401        0.0599
+    68         H        0.9436        0.0564
+    69         H        0.9436        0.0564
+    70         H        0.9450        0.0550
+    71         H        0.9397        0.0603
+    72         H        0.9445        0.0555
+    73         H        0.9142        0.0858
+    74         H        0.9274        0.0726
+    75         H        0.9174        0.0826
+    76         H        0.9258        0.0742
+    77         H        0.9231        0.0769
+    78         H        0.9238        0.0762
+    79         H        0.9096        0.0904
+ ------------------------------------------------- 
+ total                312.0000        0.0000
+ ------------------------------------------------- 
+ Saving results in set 'ground_mulliken'
+
+ --------------------------------------------------------------------------------
+                               command: population                               
+ --------------------------------------------------------------------------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 lowdin
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       11.0409        0.9591
+     2         C        6.0479       -0.0479
+     3         C        6.0951       -0.0951
+     4         C        6.1123       -0.1123
+     5         C        6.0923       -0.0923
+     6         N        7.2382       -0.2382
+     7         C        5.9392        0.0608
+     8         C        6.0068       -0.0068
+     9         C        6.0086       -0.0086
+    10         C        5.9432        0.0568
+    11         C        6.0957       -0.0957
+    12         C        6.0477       -0.0477
+    13         C        6.0443       -0.0443
+    14         H        1.0077       -0.0077
+    15         N        7.2900       -0.2900
+    16         C        5.9541        0.0459
+    17         C        5.9969        0.0031
+    18         C        6.0832       -0.0832
+    19         C        5.9287        0.0713
+    20         C        6.0974       -0.0974
+    21         C        5.8518        0.1482
+    22         O        8.1871       -0.1871
+    23         C        6.1185       -0.1185
+    24         N        7.2391       -0.2391
+    25         C        5.9308        0.0692
+    26         C        6.0115       -0.0115
+    27         C        6.0052       -0.0052
+    28         C        5.9443        0.0557
+    29         C        6.0897       -0.0897
+    30         C        6.0356       -0.0356
+    31         C        6.0893       -0.0893
+    32         N        7.2969       -0.2969
+    33         C        5.9517        0.0483
+    34         C        5.9834        0.0166
+    35         C        6.0984       -0.0984
+    36         C        5.9479        0.0521
+    37         C        6.1047       -0.1047
+    38         C        5.8484        0.1516
+    39         O        8.1830       -0.1830
+    40         C        6.0653       -0.0653
+    41         C        5.7651        0.2349
+    42         O        8.2337       -0.2337
+    43         O        8.1557       -0.1557
+    44         C        5.9967        0.0033
+    45         H        0.9701        0.0299
+    46         H        0.9573        0.0427
+    47         H        0.9697        0.0303
+    48         H        0.9703        0.0297
+    49         H        0.9735        0.0265
+    50         H        0.9633        0.0367
+    51         H        0.9647        0.0353
+    52         H        0.9668        0.0332
+    53         H        0.9710        0.0290
+    54         H        0.9630        0.0370
+    55         H        0.9785        0.0215
+    56         H        0.9824        0.0176
+    57         H        0.9645        0.0355
+    58         H        0.9668        0.0332
+    59         H        0.9614        0.0386
+    60         H        0.9523        0.0477
+    61         H        0.9531        0.0469
+    62         H        0.9588        0.0412
+    63         H        0.9689        0.0311
+    64         H        0.9770        0.0230
+    65         H        0.9701        0.0299
+    66         H        0.9689        0.0311
+    67         H        0.9701        0.0299
+    68         H        0.9750        0.0250
+    69         H        0.9756        0.0244
+    70         H        0.9737        0.0263
+    71         H        0.9699        0.0301
+    72         H        0.9732        0.0268
+    73         H        0.9489        0.0511
+    74         H        0.9589        0.0411
+    75         H        0.9494        0.0506
+    76         H        0.9606        0.0394
+    77         H        0.9593        0.0407
+    78         H        0.9592        0.0408
+    79         H        0.9498        0.0502
+ ------------------------------------------------- 
+ total                312.0000       -0.0000
+ ------------------------------------------------- 
+ Saving results in set 'ground_lowdin'
+
+ --------------------------------------------------------------------------------
+                                   command: td                                   
+ --------------------------------------------------------------------------------
+ AO basis set:                           sto-3g
+ Number of AO basis functions:         255
+ Radial threshold:                       1.00e-08
+
+ Formula:                                C34H36N4O4Mg
+ Nuclear charge:                       312.000000000
+ Total charge:                           0.000000000
+ Number of electrons:                  312.000000000
+
+ Number of alpha electrons:            156
+ Number of beta electrons:             156
+ Number of unpaired electrons:           0
+ Spin:                                   0
+ Multiplicity:                           singlet
+
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:        3926
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       6.420 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+
+ -------------------------------------
+  Running restricted closed-shell SCF 
+ -------------------------------------
+ Max number of iterations:             128
+ Conv. threshold (gradient):             1.00e-05
+ Conv. threshold (energy):               1.00e-06
+ Interpolation scheme:                   adiis+cdiis
+ Initial guess:                          SAD
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          75
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.002 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          18
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.000 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:         112
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.003 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          77
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.002 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          77
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.001 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+
+ ---------------------------------------------------------------
+                  energy        change          grad        time
+ ---------------------------------------------------------------
+ Time for DF-K:                                          0.652 seconds
+ Time for DF-J:                                          0.030 seconds
+   0     -2000.152172600                    9.60e+00        0.69
+ Time for DF-K:                                          0.202 seconds
+ Time for DF-J:                                          0.028 seconds
+   1     -1999.390862979      7.61e-01      1.45e+00        0.24
+ Switching to adiis Fock extrapolator
+ Time for DF-K:                                          0.200 seconds
+ Time for DF-J:                                          0.029 seconds
+   2     -1999.922449526     -5.32e-01      1.31e+00        0.24
+ Time for DF-K:                                          0.200 seconds
+ Time for DF-J:                                          0.029 seconds
+   3     -2000.081028946     -1.59e-01      6.18e-01        0.24
+ Time for DF-K:                                          0.203 seconds
+ Time for DF-J:                                          0.028 seconds
+   4     -2000.198218642     -1.17e-01      2.60e-01        0.24
+ Time for DF-K:                                          0.197 seconds
+ Time for DF-J:                                          0.029 seconds
+   5     -2000.204529918     -6.31e-03      1.58e-01        0.24
+ Time for DF-K:                                          0.200 seconds
+ Time for DF-J:                                          0.028 seconds
+   6     -2000.212924068     -8.39e-03      4.39e-02        0.24
+ Time for DF-K:                                          0.198 seconds
+ Time for DF-J:                                          0.028 seconds
+   7     -2000.213220376     -2.96e-04      3.96e-02        0.24
+ Time for DF-K:                                          0.198 seconds
+ Time for DF-J:                                          0.029 seconds
+   8     -2000.213598443     -3.78e-04      3.92e-03        0.24
+ Time for DF-K:                                          0.198 seconds
+ Time for DF-J:                                          0.028 seconds
+   9     -2000.213607782     -9.34e-06      2.32e-03        0.24
+ Time for DF-K:                                          0.198 seconds
+ Time for DF-J:                                          0.030 seconds
+  10     -2000.213611476     -3.69e-06      1.61e-03        0.24
+ Time for DF-K:                                          0.200 seconds
+ Time for DF-J:                                          0.027 seconds
+  11     -2000.213615328     -3.85e-06      1.34e-03        0.24
+ Time for DF-K:                                          0.205 seconds
+ Time for DF-J:                                          0.028 seconds
+  12     -2000.213618306     -2.98e-06      7.56e-04        0.25
+ Time for DF-K:                                          0.205 seconds
+ Time for DF-J:                                          0.027 seconds
+  13     -2000.213619479     -1.17e-06      3.95e-04        0.25
+ Time for DF-K:                                          0.201 seconds
+ Time for DF-J:                                          0.027 seconds
+  14     -2000.213619674     -1.95e-07      1.31e-04        0.24
+ Time for DF-K:                                          0.205 seconds
+ Time for DF-J:                                          0.026 seconds
+  15     -2000.213619691     -1.69e-08      8.45e-05        0.24
+ Time for DF-K:                                          0.203 seconds
+ Time for DF-J:                                          0.028 seconds
+  16     -2000.213619697     -6.35e-09      4.63e-05        0.24
+ Time for DF-K:                                          0.205 seconds
+ Time for DF-J:                                          0.028 seconds
+  17     -2000.213619700     -2.14e-09      3.30e-05        0.25
+ Time for DF-K:                                          0.209 seconds
+ Time for DF-J:                                          0.028 seconds
+  18     -2000.213619701     -1.22e-09      2.07e-05        0.25
+ Time for DF-K:                                          0.209 seconds
+ Time for DF-J:                                          0.028 seconds
+  19     -2000.213619701     -4.63e-10      1.25e-05        0.25
+ Time for DF-K:                                          0.207 seconds
+ Time for DF-J:                                          0.028 seconds
+  20     -2000.213619701     -1.35e-10      5.25e-06        0.25
+ Time for DF-K:                                          0.205 seconds
+ Time for DF-J:                                          0.030 seconds
+
+ SCF converged in 20 iterations.
+
+ Dipole moment (in Debye):              -1.093380       0.617046       2.724393
+
+ Quadrupole moment (in Debye-Angstrom):
+                  1            2            3
+ 1      -237.458709     4.656244     1.294761
+ 2         4.656244  -255.245198   -19.382610
+ 3         1.294761   -19.382610  -224.517672
+
+ Spin-squared expectation <S^2>:         0.000
+ Total spin quantum number S:            0.000
+
+ --------------------------------------------------
+ iter  root      eigenvalue    residual        time
+ --------------------------------------------------
+    1    1        0.096808    6.65e-02
+         2        0.119213    7.67e-02
+         3        0.183716    6.77e-02       13.12
+    2    1        0.068765    2.13e-02
+         2        0.095114    2.45e-02
+         3        0.168080    2.28e-02        2.55
+    3    1        0.064859    7.30e-03
+         2        0.090007    9.72e-03
+         3        0.164434    8.74e-03        2.72
+    4    1        0.064459    2.83e-03
+         2        0.089439    3.79e-03
+         3        0.163925    6.82e-03        2.46
+    5    1        0.064411    8.28e-04
+         2        0.089361    1.07e-03
+         3        0.163709    4.17e-03        2.42
+    6    1        0.064405    3.47e-04
+         2        0.089353    4.48e-04
+         3        0.163441    7.45e-03        2.35
+    7    1        0.064404    1.19e-04
+         2        0.089352    1.66e-04
+         3        0.161946    1.68e-02        2.54
+    8    1        0.064404    5.61e-05
+         2        0.089352    9.01e-05
+         3        0.156810    3.39e-02        2.90
+    9    1        0.064403    2.63e-05
+         2        0.089351    5.95e-05
+         3        0.139752    3.48e-02        2.61
+   10    1        0.064403    1.45e-05
+         2        0.089351    2.64e-05
+         3        0.133423    1.57e-02        2.51
+   11    1        0.064403    7.84e-06
+         2        0.089351    1.45e-05
+         3        0.131748    9.67e-03        2.59
+   12    1        0.064403    3.69e-06
+         2        0.089351    5.56e-06
+         3        0.131127    6.84e-03        2.52
+   13    1        0.064403    1.46e-06
+         2        0.089351    2.09e-06
+         3        0.130747    4.55e-03        2.43
+   14    1        0.064403    4.86e-07
+         2        0.089351    7.07e-07
+         3        0.130644    1.81e-03        2.56
+   15    1        0.064403    2.63e-07
+         2        0.089351    4.51e-07
+         3        0.130627    7.76e-04        1.38
+   16    1        0.064403    1.91e-07
+         2        0.089351    4.04e-07
+         3        0.130625    2.77e-04        1.43
+   17    1        0.064403    1.90e-07
+         2        0.089351    4.03e-07
+         3        0.130624    1.02e-04        1.40
+   18    1        0.064403    1.90e-07
+         2        0.089351    4.00e-07
+         3        0.130624    4.13e-05        1.40
+   19    1        0.064403    1.76e-07
+         2        0.089351    3.82e-07
+         3        0.130624    1.56e-05        1.43
+   20    1        0.064403    1.74e-07
+         2        0.089351    3.84e-07
+         3        0.130624    5.73e-06        1.39
+   21    1        0.064403    1.75e-07
+         2        0.089351    3.83e-07
+         3        0.130624    2.30e-06        1.42
+   22    1        0.064403    1.72e-07
+         2        0.089351    3.85e-07
+         3        0.130624    8.52e-07        1.40
+
+ Convergence achieved
+
+ -----------------------------
+  Summary of response results 
+ -----------------------------
+
+ Excited State   1:  0.064403 hartree (    1.7525 eV)   <S^2> =  0.000  Multiplicity =  1.000
+                     MO transition   Coefficient
+                      155 -> 158        -0.2408
+                      155 <- 158        -0.1725
+                      156 -> 157        -0.6798
+
+ Excited State   2:  0.089351 hartree (    2.4314 eV)   <S^2> =  0.000  Multiplicity =  1.000
+                     MO transition   Coefficient
+                      155 -> 157        -0.6341
+                      156 -> 158         0.3173
+                      156 <- 158         0.1446
+
+ Excited State   3:  0.130624 hartree (    3.5545 eV)   <S^2> =  0.000  Multiplicity =  1.000
+                     MO transition   Coefficient
+                      149 -> 157        -0.2356
+                      149 -> 158         0.1122
+                      149 -> 159         0.4518
+                      149 -> 160        -0.2791
+                      149 -> 163        -0.2543
+                      149 -> 164        -0.1559
+ Transition Dipole Moments (a.u.)
+                         X                   Y                   Z
+ 1            -0.508679751         2.328187093         2.489104287
+ 2            -0.033063114         1.209088124        -0.871757979
+ 3             0.017174611        -0.010646453        -0.023273140
+
+ Oscillator Strengths (a.u.):
+                  1
+ 1         0.509854
+ 2         0.132416
+ 3         0.000083
+
+ Excited State Dipoles (in Debye)
+                         X                   Y                   Z
+ 1            -1.196210740         1.031367537         2.950872308
+ 2            -1.089760539         0.061110259         2.618010155
+ 3            -1.004249587         4.508613899         1.095050787
+
+
+ -----------------
+  Excited State 1 
+ -----------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 mulliken
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       10.8247        1.1753
+     2         C        6.0772       -0.0772
+     3         C        6.1428       -0.1428
+     4         C        6.1577       -0.1577
+     5         C        6.1372       -0.1372
+     6         N        7.4265       -0.4265
+     7         C        5.8628        0.1372
+     8         C        6.0397       -0.0397
+     9         C        6.0430       -0.0430
+    10         C        5.8594        0.1406
+    11         C        6.1835       -0.1835
+    12         C        6.1102       -0.1102
+    13         C        6.1162       -0.1162
+    14         H        0.9955        0.0045
+    15         N        7.4450       -0.4450
+    16         C        5.8852        0.1148
+    17         C        6.0078       -0.0078
+    18         C        6.0786       -0.0786
+    19         C        5.8592        0.1408
+    20         C        6.1903       -0.1903
+    21         C        5.8276        0.1724
+    22         O        8.2345       -0.2345
+    23         C        6.2076       -0.2076
+    24         N        7.4446       -0.4446
+    25         C        5.8570        0.1430
+    26         C        6.0454       -0.0454
+    27         C        6.0347       -0.0347
+    28         C        5.8756        0.1244
+    29         C        6.1750       -0.1750
+    30         C        6.0970       -0.0970
+    31         C        6.1755       -0.1755
+    32         N        7.4196       -0.4196
+    33         C        5.8870        0.1130
+    34         C        6.0012       -0.0012
+    35         C        6.0852       -0.0852
+    36         C        5.8851        0.1149
+    37         C        6.2034       -0.2034
+    38         C        5.8104        0.1896
+    39         O        8.2464       -0.2464
+    40         C        6.0905       -0.0905
+    41         C        5.6864        0.3136
+    42         O        8.2762       -0.2762
+    43         O        8.2344       -0.2344
+    44         C        6.0775       -0.0775
+    45         H        0.9415        0.0585
+    46         H        0.9244        0.0756
+    47         H        0.9408        0.0592
+    48         H        0.9355        0.0645
+    49         H        0.9398        0.0602
+    50         H        0.9315        0.0685
+    51         H        0.9336        0.0664
+    52         H        0.9362        0.0638
+    53         H        0.9401        0.0599
+    54         H        0.9280        0.0720
+    55         H        0.9485        0.0515
+    56         H        0.9524        0.0476
+    57         H        0.9345        0.0655
+    58         H        0.9375        0.0625
+    59         H        0.9306        0.0694
+    60         H        0.9205        0.0795
+    61         H        0.9196        0.0804
+    62         H        0.9284        0.0716
+    63         H        0.9344        0.0656
+    64         H        0.9439        0.0561
+    65         H        0.9404        0.0596
+    66         H        0.9384        0.0616
+    67         H        0.9401        0.0599
+    68         H        0.9436        0.0564
+    69         H        0.9436        0.0564
+    70         H        0.9450        0.0550
+    71         H        0.9397        0.0603
+    72         H        0.9445        0.0555
+    73         H        0.9145        0.0855
+    74         H        0.9275        0.0725
+    75         H        0.9179        0.0821
+    76         H        0.9264        0.0736
+    77         H        0.9231        0.0769
+    78         H        0.9238        0.0762
+    79         H        0.9096        0.0904
+ ------------------------------------------------- 
+ total                312.0000       -0.0000
+ ------------------------------------------------- 
+
+
+ -----------------
+  Excited State 2 
+ -----------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 mulliken
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       10.8164        1.1836
+     2         C        5.9769        0.0231
+     3         C        6.0637       -0.0637
+     4         C        6.0894       -0.0894
+     5         C        6.0653       -0.0653
+     6         N        7.3414       -0.3414
+     7         C        5.9197        0.0803
+     8         C        6.0402       -0.0402
+     9         C        6.0426       -0.0426
+    10         C        5.9450        0.0550
+    11         C        6.1865       -0.1865
+    12         C        6.1124       -0.1124
+    13         C        6.1163       -0.1163
+    14         H        0.9956        0.0044
+    15         N        7.4070       -0.4070
+    16         C        5.9525        0.0475
+    17         C        6.0270       -0.0270
+    18         C        6.0865       -0.0865
+    19         C        5.9263        0.0737
+    20         C        6.1905       -0.1905
+    21         C        5.8267        0.1733
+    22         O        8.2364       -0.2364
+    23         C        6.2076       -0.2076
+    24         N        7.3525       -0.3525
+    25         C        5.9236        0.0764
+    26         C        6.0451       -0.0451
+    27         C        6.0349       -0.0349
+    28         C        5.9432        0.0568
+    29         C        6.1773       -0.1773
+    30         C        6.0990       -0.0990
+    31         C        6.1757       -0.1757
+    32         N        7.3541       -0.3541
+    33         C        5.9634        0.0366
+    34         C        6.0147       -0.0147
+    35         C        6.1021       -0.1021
+    36         C        5.9340        0.0660
+    37         C        6.2036       -0.2036
+    38         C        5.8095        0.1905
+    39         O        8.2514       -0.2514
+    40         C        6.0900       -0.0900
+    41         C        5.6835        0.3165
+    42         O        8.2750       -0.2750
+    43         O        8.2341       -0.2341
+    44         C        6.0773       -0.0773
+    45         H        0.9414        0.0586
+    46         H        0.9245        0.0755
+    47         H        0.9412        0.0588
+    48         H        0.9359        0.0641
+    49         H        0.9405        0.0595
+    50         H        0.9315        0.0685
+    51         H        0.9335        0.0665
+    52         H        0.9364        0.0636
+    53         H        0.9401        0.0599
+    54         H        0.9280        0.0720
+    55         H        0.9485        0.0515
+    56         H        0.9524        0.0476
+    57         H        0.9345        0.0655
+    58         H        0.9384        0.0616
+    59         H        0.9312        0.0688
+    60         H        0.9204        0.0796
+    61         H        0.9196        0.0804
+    62         H        0.9284        0.0716
+    63         H        0.9358        0.0642
+    64         H        0.9460        0.0540
+    65         H        0.9405        0.0595
+    66         H        0.9384        0.0616
+    67         H        0.9402        0.0598
+    68         H        0.9436        0.0564
+    69         H        0.9436        0.0564
+    70         H        0.9450        0.0550
+    71         H        0.9397        0.0603
+    72         H        0.9445        0.0555
+    73         H        0.9148        0.0852
+    74         H        0.9275        0.0725
+    75         H        0.9187        0.0813
+    76         H        0.9229        0.0771
+    77         H        0.9231        0.0769
+    78         H        0.9238        0.0762
+    79         H        0.9096        0.0904
+ ------------------------------------------------- 
+ total                312.0000       -0.0000
+ ------------------------------------------------- 
+
+
+ -----------------
+  Excited State 3 
+ -----------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 mulliken
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       10.8254        1.1746
+     2         C        6.0363       -0.0363
+     3         C        6.1150       -0.1150
+     4         C        6.1258       -0.1258
+     5         C        6.1102       -0.1102
+     6         N        7.3635       -0.3635
+     7         C        5.9071        0.0929
+     8         C        6.0400       -0.0400
+     9         C        6.0430       -0.0430
+    10         C        5.9187        0.0813
+    11         C        6.1858       -0.1858
+    12         C        6.1119       -0.1119
+    13         C        6.1162       -0.1162
+    14         H        0.9956        0.0044
+    15         N        7.4444       -0.4444
+    16         C        5.9243        0.0757
+    17         C        6.0576       -0.0576
+    18         C        6.0121       -0.0121
+    19         C        5.9175        0.0825
+    20         C        6.1906       -0.1906
+    21         C        6.2718       -0.2718
+    22         O        7.7485        0.2515
+    23         C        6.1542       -0.1542
+    24         N        7.3747       -0.3747
+    25         C        5.9083        0.0917
+    26         C        6.0454       -0.0454
+    27         C        6.0351       -0.0351
+    28         C        5.9246        0.0754
+    29         C        6.1768       -0.1768
+    30         C        6.0985       -0.0985
+    31         C        6.1756       -0.1756
+    32         N        7.4132       -0.4132
+    33         C        5.9272        0.0728
+    34         C        5.9867        0.0133
+    35         C        6.0772       -0.0772
+    36         C        5.9191        0.0809
+    37         C        6.2036       -0.2036
+    38         C        5.8074        0.1926
+    39         O        8.2419       -0.2419
+    40         C        6.0906       -0.0906
+    41         C        5.6859        0.3141
+    42         O        8.2759       -0.2759
+    43         O        8.2344       -0.2344
+    44         C        6.0775       -0.0775
+    45         H        0.9414        0.0586
+    46         H        0.9244        0.0756
+    47         H        0.9413        0.0587
+    48         H        0.9358        0.0642
+    49         H        0.9403        0.0597
+    50         H        0.9315        0.0685
+    51         H        0.9335        0.0665
+    52         H        0.9363        0.0637
+    53         H        0.9401        0.0599
+    54         H        0.9280        0.0720
+    55         H        0.9485        0.0515
+    56         H        0.9524        0.0476
+    57         H        0.9345        0.0655
+    58         H        0.9390        0.0610
+    59         H        0.9318        0.0682
+    60         H        0.9315        0.0685
+    61         H        0.9191        0.0809
+    62         H        0.9378        0.0622
+    63         H        0.9355        0.0645
+    64         H        0.9456        0.0544
+    65         H        0.9405        0.0595
+    66         H        0.9384        0.0616
+    67         H        0.9401        0.0599
+    68         H        0.9436        0.0564
+    69         H        0.9436        0.0564
+    70         H        0.9450        0.0550
+    71         H        0.9397        0.0603
+    72         H        0.9445        0.0555
+    73         H        0.9142        0.0858
+    74         H        0.9274        0.0726
+    75         H        0.9175        0.0825
+    76         H        0.9259        0.0741
+    77         H        0.9231        0.0769
+    78         H        0.9238        0.0762
+    79         H        0.9096        0.0904
+ ------------------------------------------------- 
+ total                312.0000       -0.0000
+ ------------------------------------------------- 
+ Saving results in set 'excited_mulliken'
+
+ --------------------------------------------------------------------------------
+                                   command: td                                   
+ --------------------------------------------------------------------------------
+ AO basis set:                           sto-3g
+ Number of AO basis functions:         255
+ Radial threshold:                       1.00e-08
+
+ Formula:                                C34H36N4O4Mg
+ Nuclear charge:                       312.000000000
+ Total charge:                           0.000000000
+ Number of electrons:                  312.000000000
+
+ Number of alpha electrons:            156
+ Number of beta electrons:             156
+ Number of unpaired electrons:           0
+ Spin:                                   0
+ Multiplicity:                           singlet
+
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:        3926
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       6.503 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+
+ -------------------------------------
+  Running restricted closed-shell SCF 
+ -------------------------------------
+ Max number of iterations:             128
+ Conv. threshold (gradient):             1.00e-05
+ Conv. threshold (energy):               1.00e-06
+ Interpolation scheme:                   adiis+cdiis
+ Initial guess:                          SAD
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          75
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.002 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          18
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.000 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:         112
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.003 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          77
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.002 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Theory:                                 hf
+ Method for Coulomb:                     incore_df
+ Method for exact exchange:              pre_transformed_df
+ Integral threshold:                     1.00e-12
+ DF basis set:                           def2-universal-JKFIT
+ Number of DF basis functions:          77
+ Schwarz screening threshold:            1.00e-10
+ Coulomb fitting method:                 Cholesky
+ Time for pre-computing density fitting integrals:       0.002 seconds
+ Method for AO orthogonalization:        symmetric
+ Threshold for linear dependence:        1.00e-08
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+ Time for DF-K:                                          0.000 seconds
+ Time for DF-J:                                          0.000 seconds
+
+ ---------------------------------------------------------------
+                  energy        change          grad        time
+ ---------------------------------------------------------------
+ Time for DF-K:                                          0.680 seconds
+ Time for DF-J:                                          0.030 seconds
+   0     -2000.152172600                    9.60e+00        0.71
+ Time for DF-K:                                          0.208 seconds
+ Time for DF-J:                                          0.030 seconds
+   1     -1999.390862979      7.61e-01      1.45e+00        0.25
+ Switching to adiis Fock extrapolator
+ Time for DF-K:                                          0.207 seconds
+ Time for DF-J:                                          0.029 seconds
+   2     -1999.922449526     -5.32e-01      1.31e+00        0.25
+ Time for DF-K:                                          0.209 seconds
+ Time for DF-J:                                          0.029 seconds
+   3     -2000.081028946     -1.59e-01      6.18e-01        0.25
+ Time for DF-K:                                          0.207 seconds
+ Time for DF-J:                                          0.028 seconds
+   4     -2000.198218642     -1.17e-01      2.60e-01        0.25
+ Time for DF-K:                                          0.210 seconds
+ Time for DF-J:                                          0.028 seconds
+   5     -2000.204529918     -6.31e-03      1.58e-01        0.25
+ Time for DF-K:                                          0.211 seconds
+ Time for DF-J:                                          0.028 seconds
+   6     -2000.212924068     -8.39e-03      4.39e-02        0.26
+ Time for DF-K:                                          0.211 seconds
+ Time for DF-J:                                          0.027 seconds
+   7     -2000.213220376     -2.96e-04      3.96e-02        0.26
+ Time for DF-K:                                          0.206 seconds
+ Time for DF-J:                                          0.029 seconds
+   8     -2000.213598443     -3.78e-04      3.92e-03        0.25
+ Time for DF-K:                                          0.207 seconds
+ Time for DF-J:                                          0.028 seconds
+   9     -2000.213607782     -9.34e-06      2.32e-03        0.25
+ Time for DF-K:                                          0.209 seconds
+ Time for DF-J:                                          0.030 seconds
+  10     -2000.213611476     -3.69e-06      1.61e-03        0.25
+ Time for DF-K:                                          0.210 seconds
+ Time for DF-J:                                          0.028 seconds
+  11     -2000.213615328     -3.85e-06      1.34e-03        0.25
+ Time for DF-K:                                          0.204 seconds
+ Time for DF-J:                                          0.028 seconds
+  12     -2000.213618306     -2.98e-06      7.56e-04        0.25
+ Time for DF-K:                                          0.208 seconds
+ Time for DF-J:                                          0.029 seconds
+  13     -2000.213619479     -1.17e-06      3.95e-04        0.25
+ Time for DF-K:                                          0.204 seconds
+ Time for DF-J:                                          0.029 seconds
+  14     -2000.213619674     -1.95e-07      1.31e-04        0.25
+ Time for DF-K:                                          0.209 seconds
+ Time for DF-J:                                          0.028 seconds
+  15     -2000.213619691     -1.69e-08      8.45e-05        0.25
+ Time for DF-K:                                          0.210 seconds
+ Time for DF-J:                                          0.029 seconds
+  16     -2000.213619697     -6.35e-09      4.63e-05        0.25
+ Time for DF-K:                                          0.217 seconds
+ Time for DF-J:                                          0.030 seconds
+  17     -2000.213619700     -2.12e-09      3.30e-05        0.26
+ Time for DF-K:                                          0.216 seconds
+ Time for DF-J:                                          0.028 seconds
+  18     -2000.213619701     -1.24e-09      2.07e-05        0.26
+ Time for DF-K:                                          0.215 seconds
+ Time for DF-J:                                          0.029 seconds
+  19     -2000.213619701     -4.65e-10      1.25e-05        0.26
+ Time for DF-K:                                          0.212 seconds
+ Time for DF-J:                                          0.028 seconds
+  20     -2000.213619701     -1.34e-10      5.25e-06        0.26
+ Time for DF-K:                                          0.209 seconds
+ Time for DF-J:                                          0.028 seconds
+
+ SCF converged in 20 iterations.
+
+ Dipole moment (in Debye):              -1.093380       0.617046       2.724393
+
+ Quadrupole moment (in Debye-Angstrom):
+                  1            2            3
+ 1      -237.458709     4.656244     1.294761
+ 2         4.656244  -255.245198   -19.382610
+ 3         1.294761   -19.382610  -224.517672
+
+ Spin-squared expectation <S^2>:         0.000
+ Total spin quantum number S:            0.000
+
+ --------------------------------------------------
+ iter  root      eigenvalue    residual        time
+ --------------------------------------------------
+    1    1        0.096808    6.65e-02
+         2        0.119213    7.67e-02
+         3        0.183716    6.77e-02       11.40
+    2    1        0.068765    2.13e-02
+         2        0.095114    2.45e-02
+         3        0.168080    2.28e-02        2.66
+    3    1        0.064859    7.30e-03
+         2        0.090007    9.72e-03
+         3        0.164434    8.74e-03        2.60
+    4    1        0.064459    2.83e-03
+         2        0.089439    3.79e-03
+         3        0.163925    6.82e-03        2.40
+    5    1        0.064411    8.28e-04
+         2        0.089361    1.07e-03
+         3        0.163709    4.17e-03        2.61
+    6    1        0.064405    3.47e-04
+         2        0.089353    4.48e-04
+         3        0.163441    7.45e-03        2.43
+    7    1        0.064404    1.19e-04
+         2        0.089352    1.66e-04
+         3        0.161946    1.68e-02        2.35
+    8    1        0.064404    5.61e-05
+         2        0.089352    9.01e-05
+         3        0.156810    3.39e-02        2.41
+    9    1        0.064403    2.63e-05
+         2        0.089351    5.95e-05
+         3        0.139752    3.48e-02        2.50
+   10    1        0.064403    1.45e-05
+         2        0.089351    2.64e-05
+         3        0.133423    1.57e-02        2.42
+   11    1        0.064403    7.84e-06
+         2        0.089351    1.45e-05
+         3        0.131748    9.67e-03        2.50
+   12    1        0.064403    3.69e-06
+         2        0.089351    5.56e-06
+         3        0.131127    6.84e-03        2.55
+   13    1        0.064403    1.46e-06
+         2        0.089351    2.09e-06
+         3        0.130747    4.55e-03        2.43
+   14    1        0.064403    4.86e-07
+         2        0.089351    7.07e-07
+         3        0.130644    1.81e-03        2.49
+   15    1        0.064403    2.63e-07
+         2        0.089351    4.51e-07
+         3        0.130627    7.76e-04        1.39
+   16    1        0.064403    1.91e-07
+         2        0.089351    4.04e-07
+         3        0.130625    2.77e-04        1.44
+   17    1        0.064403    1.90e-07
+         2        0.089351    4.03e-07
+         3        0.130624    1.02e-04        1.42
+   18    1        0.064403    1.90e-07
+         2        0.089351    4.00e-07
+         3        0.130624    4.13e-05        1.41
+   19    1        0.064403    1.76e-07
+         2        0.089351    3.82e-07
+         3        0.130624    1.56e-05        1.48
+   20    1        0.064403    1.74e-07
+         2        0.089351    3.84e-07
+         3        0.130624    5.73e-06        1.44
+   21    1        0.064403    1.75e-07
+         2        0.089351    3.83e-07
+         3        0.130624    2.30e-06        1.40
+   22    1        0.064403    1.72e-07
+         2        0.089351    3.85e-07
+         3        0.130624    8.52e-07        1.44
+
+ Convergence achieved
+
+ -----------------------------
+  Summary of response results 
+ -----------------------------
+
+ Excited State   1:  0.064403 hartree (    1.7525 eV)   <S^2> =  0.000  Multiplicity =  1.000
+                     MO transition   Coefficient
+                      155 -> 158        -0.2408
+                      155 <- 158        -0.1725
+                      156 -> 157        -0.6798
+
+ Excited State   2:  0.089351 hartree (    2.4314 eV)   <S^2> =  0.000  Multiplicity =  1.000
+                     MO transition   Coefficient
+                      155 -> 157        -0.6341
+                      156 -> 158         0.3173
+                      156 <- 158         0.1446
+
+ Excited State   3:  0.130624 hartree (    3.5545 eV)   <S^2> =  0.000  Multiplicity =  1.000
+                     MO transition   Coefficient
+                      149 -> 157        -0.2356
+                      149 -> 158         0.1122
+                      149 -> 159         0.4518
+                      149 -> 160        -0.2791
+                      149 -> 163        -0.2543
+                      149 -> 164        -0.1559
+ Transition Dipole Moments (a.u.)
+                         X                   Y                   Z
+ 1            -0.508679751         2.328187093         2.489104287
+ 2            -0.033063114         1.209088124        -0.871757979
+ 3             0.017174611        -0.010646453        -0.023273140
+
+ Oscillator Strengths (a.u.):
+                  1
+ 1         0.509854
+ 2         0.132416
+ 3         0.000083
+
+ Excited State Dipoles (in Debye)
+                         X                   Y                   Z
+ 1            -1.196210740         1.031367537         2.950872308
+ 2            -1.089760539         0.061110259         2.618010155
+ 3            -1.004249587         4.508613899         1.095050787
+
+
+ -----------------
+  Excited State 1 
+ -----------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 lowdin
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       11.0398        0.9602
+     2         C        6.0923       -0.0923
+     3         C        6.1293       -0.1293
+     4         C        6.1432       -0.1432
+     5         C        6.1195       -0.1195
+     6         N        7.3058       -0.3058
+     7         C        5.8965        0.1035
+     8         C        6.0065       -0.0065
+     9         C        6.0085       -0.0085
+    10         C        5.8838        0.1162
+    11         C        6.0934       -0.0934
+    12         C        6.0461       -0.0461
+    13         C        6.0443       -0.0443
+    14         H        1.0076       -0.0076
+    15         N        7.2979       -0.2979
+    16         C        5.9136        0.0864
+    17         C        6.0107       -0.0107
+    18         C        6.0984       -0.0984
+    19         C        5.8817        0.1183
+    20         C        6.0972       -0.0972
+    21         C        5.8542        0.1458
+    22         O        8.1922       -0.1922
+    23         C        6.1185       -0.1185
+    24         N        7.3102       -0.3102
+    25         C        5.8835        0.1165
+    26         C        6.0114       -0.0114
+    27         C        6.0048       -0.0048
+    28         C        5.8993        0.1007
+    29         C        6.0879       -0.0879
+    30         C        6.0342       -0.0342
+    31         C        6.0891       -0.0891
+    32         N        7.3037       -0.3037
+    33         C        5.9158        0.0842
+    34         C        5.9992        0.0008
+    35         C        6.1082       -0.1082
+    36         C        5.9158        0.0842
+    37         C        6.1045       -0.1045
+    38         C        5.8515        0.1485
+    39         O        8.1881       -0.1881
+    40         C        6.0652       -0.0652
+    41         C        5.7658        0.2342
+    42         O        8.2340       -0.2340
+    43         O        8.1557       -0.1557
+    44         C        5.9967        0.0033
+    45         H        0.9702        0.0298
+    46         H        0.9573        0.0427
+    47         H        0.9693        0.0307
+    48         H        0.9699        0.0301
+    49         H        0.9730        0.0270
+    50         H        0.9633        0.0367
+    51         H        0.9647        0.0353
+    52         H        0.9667        0.0333
+    53         H        0.9710        0.0290
+    54         H        0.9630        0.0370
+    55         H        0.9785        0.0215
+    56         H        0.9824        0.0176
+    57         H        0.9645        0.0355
+    58         H        0.9670        0.0330
+    59         H        0.9617        0.0383
+    60         H        0.9523        0.0477
+    61         H        0.9531        0.0469
+    62         H        0.9589        0.0411
+    63         H        0.9679        0.0321
+    64         H        0.9753        0.0247
+    65         H        0.9701        0.0299
+    66         H        0.9689        0.0311
+    67         H        0.9701        0.0299
+    68         H        0.9750        0.0250
+    69         H        0.9756        0.0244
+    70         H        0.9737        0.0263
+    71         H        0.9699        0.0301
+    72         H        0.9732        0.0268
+    73         H        0.9492        0.0508
+    74         H        0.9589        0.0411
+    75         H        0.9499        0.0501
+    76         H        0.9613        0.0387
+    77         H        0.9593        0.0407
+    78         H        0.9592        0.0408
+    79         H        0.9498        0.0502
+ ------------------------------------------------- 
+ total                312.0000       -0.0000
+ ------------------------------------------------- 
+
+
+ -----------------
+  Excited State 2 
+ -----------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 lowdin
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       11.0308        0.9692
+     2         C        5.9924        0.0076
+     3         C        6.0502       -0.0502
+     4         C        6.0751       -0.0751
+     5         C        6.0477       -0.0477
+     6         N        7.2206       -0.2206
+     7         C        5.9534        0.0466
+     8         C        6.0070       -0.0070
+     9         C        6.0082       -0.0082
+    10         C        5.9693        0.0307
+    11         C        6.0965       -0.0965
+    12         C        6.0483       -0.0483
+    13         C        6.0444       -0.0444
+    14         H        1.0077       -0.0077
+    15         N        7.2601       -0.2601
+    16         C        5.9809        0.0191
+    17         C        6.0299       -0.0299
+    18         C        6.1065       -0.1065
+    19         C        5.9486        0.0514
+    20         C        6.0974       -0.0974
+    21         C        5.8534        0.1466
+    22         O        8.1940       -0.1940
+    23         C        6.1185       -0.1185
+    24         N        7.2178       -0.2178
+    25         C        5.9499        0.0501
+    26         C        6.0112       -0.0112
+    27         C        6.0051       -0.0051
+    28         C        5.9671        0.0329
+    29         C        6.0903       -0.0903
+    30         C        6.0362       -0.0362
+    31         C        6.0894       -0.0894
+    32         N        7.2383       -0.2383
+    33         C        5.9921        0.0079
+    34         C        6.0127       -0.0127
+    35         C        6.1251       -0.1251
+    36         C        5.9646        0.0354
+    37         C        6.1047       -0.1047
+    38         C        5.8507        0.1493
+    39         O        8.1932       -0.1932
+    40         C        6.0645       -0.0645
+    41         C        5.7628        0.2372
+    42         O        8.2328       -0.2328
+    43         O        8.1555       -0.1555
+    44         C        5.9966        0.0034
+    45         H        0.9701        0.0299
+    46         H        0.9573        0.0427
+    47         H        0.9697        0.0303
+    48         H        0.9704        0.0296
+    49         H        0.9737        0.0263
+    50         H        0.9633        0.0367
+    51         H        0.9647        0.0353
+    52         H        0.9669        0.0331
+    53         H        0.9710        0.0290
+    54         H        0.9630        0.0370
+    55         H        0.9785        0.0215
+    56         H        0.9824        0.0176
+    57         H        0.9645        0.0355
+    58         H        0.9679        0.0321
+    59         H        0.9623        0.0377
+    60         H        0.9523        0.0477
+    61         H        0.9531        0.0469
+    62         H        0.9589        0.0411
+    63         H        0.9693        0.0307
+    64         H        0.9775        0.0225
+    65         H        0.9702        0.0298
+    66         H        0.9689        0.0311
+    67         H        0.9702        0.0298
+    68         H        0.9750        0.0250
+    69         H        0.9756        0.0244
+    70         H        0.9737        0.0263
+    71         H        0.9699        0.0301
+    72         H        0.9733        0.0267
+    73         H        0.9495        0.0505
+    74         H        0.9590        0.0410
+    75         H        0.9508        0.0492
+    76         H        0.9578        0.0422
+    77         H        0.9593        0.0407
+    78         H        0.9592        0.0408
+    79         H        0.9498        0.0502
+ ------------------------------------------------- 
+ total                312.0000       -0.0000
+ ------------------------------------------------- 
+
+
+ -----------------
+  Excited State 3 
+ -----------------
+
+ ---------------------
+  Population Analysis 
+ ---------------------
+
+ Method:                                 lowdin
+
+ ------------------------------------------------- 
+  atom    symbol    population        charge
+ ------------------------------------------------- 
+     1        Mg       11.0408        0.9592
+     2         C        6.0515       -0.0515
+     3         C        6.1017       -0.1017
+     4         C        6.1116       -0.1116
+     5         C        6.0925       -0.0925
+     6         N        7.2424       -0.2424
+     7         C        5.9408        0.0592
+     8         C        6.0068       -0.0068
+     9         C        6.0087       -0.0087
+    10         C        5.9432        0.0568
+    11         C        6.0957       -0.0957
+    12         C        6.0478       -0.0478
+    13         C        6.0443       -0.0443
+    14         H        1.0077       -0.0077
+    15         N        7.2972       -0.2972
+    16         C        5.9527        0.0473
+    17         C        6.0614       -0.0614
+    18         C        6.0337       -0.0337
+    19         C        5.9404        0.0596
+    20         C        6.0976       -0.0976
+    21         C        6.2943       -0.2943
+    22         O        7.7046        0.2954
+    23         C        6.0656       -0.0656
+    24         N        7.2396       -0.2396
+    25         C        5.9348        0.0652
+    26         C        6.0114       -0.0114
+    27         C        6.0053       -0.0053
+    28         C        5.9485        0.0515
+    29         C        6.0898       -0.0898
+    30         C        6.0357       -0.0357
+    31         C        6.0893       -0.0893
+    32         N        7.2973       -0.2973
+    33         C        5.9560        0.0440
+    34         C        5.9848        0.0152
+    35         C        6.1002       -0.1002
+    36         C        5.9497        0.0503
+    37         C        6.1047       -0.1047
+    38         C        5.8485        0.1515
+    39         O        8.1836       -0.1836
+    40         C        6.0653       -0.0653
+    41         C        5.7652        0.2348
+    42         O        8.2337       -0.2337
+    43         O        8.1557       -0.1557
+    44         C        5.9967        0.0033
+    45         H        0.9701        0.0299
+    46         H        0.9572        0.0428
+    47         H        0.9697        0.0303
+    48         H        0.9703        0.0297
+    49         H        0.9735        0.0265
+    50         H        0.9633        0.0367
+    51         H        0.9647        0.0353
+    52         H        0.9668        0.0332
+    53         H        0.9710        0.0290
+    54         H        0.9630        0.0370
+    55         H        0.9785        0.0215
+    56         H        0.9824        0.0176
+    57         H        0.9645        0.0355
+    58         H        0.9685        0.0315
+    59         H        0.9630        0.0370
+    60         H        0.9640        0.0360
+    61         H        0.9527        0.0473
+    62         H        0.9690        0.0310
+    63         H        0.9690        0.0310
+    64         H        0.9771        0.0229
+    65         H        0.9701        0.0299
+    66         H        0.9689        0.0311
+    67         H        0.9701        0.0299
+    68         H        0.9750        0.0250
+    69         H        0.9756        0.0244
+    70         H        0.9737        0.0263
+    71         H        0.9699        0.0301
+    72         H        0.9732        0.0268
+    73         H        0.9489        0.0511
+    74         H        0.9589        0.0411
+    75         H        0.9495        0.0505
+    76         H        0.9607        0.0393
+    77         H        0.9593        0.0407
+    78         H        0.9592        0.0408
+    79         H        0.9498        0.0502
+ ------------------------------------------------- 
+ total                312.0000       -0.0000
+ ------------------------------------------------- 
+ Saving results in set 'excited_lowdin'
+
+ --------------------------------------------------------------------------------
+                                  command: print                                 
+ --------------------------------------------------------------------------------
+
+ ground_mulliken.charges:
+                      1
+ 1         1.1744799814
+ 2        -0.0326483237
+ 3        -0.1084709551
+ 4        -0.1265880972
+ 5        -0.1100103452
+ 6        -0.3593227041
+ 7         0.0945658420
+ 8        -0.0399587593
+ 9        -0.0430301446
+ 10        0.0812637955
+ 11       -0.1857474474
+ 12       -0.1118867011
+ 13       -0.1161787655
+ 14        0.0044506562
+ 15       -0.4371558595
+ 16        0.0743233029
+ 17        0.0059637228
+ 18       -0.0632761455
+ 19        0.0937040445
+ 20       -0.1904587997
+ 21        0.1748924658
+ 22       -0.2294634964
+ 23       -0.2075930030
+ 24       -0.3741233534
+ 25        0.0956033165
+ 26       -0.0454200684
+ 27       -0.0350300552
+ 28        0.0796525117
+ 29       -0.1767025893
+ 30       -0.0983830135
+ 31       -0.1756240328
+ 32       -0.4128171934
+ 33        0.0771626847
+ 34        0.0145717657
+ 35       -0.0754188513
+ 36        0.0826897046
+ 37       -0.2035586142
+ 38        0.1926928576
+ 39       -0.2413224742
+ 40       -0.0905504175
+ 41        0.3141696188
+ 42       -0.2758969670
+ 43       -0.2343562978
+ 44       -0.0774595649
+ 45        0.0585567761
+ 46        0.0755074908
+ 47        0.0587462161
+ 48        0.0641708365
+ 49        0.0597182576
+ 50        0.0685264570
+ 51        0.0664601748
+ 52        0.0636525920
+ 53        0.0599084234
+ 54        0.0719945367
+ 55        0.0514785575
+ 56        0.0476160379
+ 57        0.0654703436
+ 58        0.0626286845
+ 59        0.0697810848
+ 60        0.0795976368
+ 61        0.0804337497
+ 62        0.0716333191
+ 63        0.0645799076
+ 64        0.0544752739
+ 65        0.0595134628
+ 66        0.0616303185
+ 67        0.0598674026
+ 68        0.0564492267
+ 69        0.0563874141
+ 70        0.0550376650
+ 71        0.0603172361
+ 72        0.0555234758
+ 73        0.0858100108
+ 74        0.0725547682
+ 75        0.0826080450
+ 76        0.0742011012
+ 77        0.0768819554
+ 78        0.0761946124
+ 79        0.0903537189
+
+ --------------------------------------------------------------------------------
+                                  command: print                                 
+ --------------------------------------------------------------------------------
+
+ ground_lowdin.charges:
+                      1
+ 1         0.9591096083
+ 2        -0.0479170519
+ 3        -0.0951005207
+ 4        -0.1123357436
+ 5        -0.0923143661
+ 6        -0.2381938170
+ 7         0.0608389213
+ 8        -0.0067608930
+ 9        -0.0086398694
+ 10        0.0568340038
+ 11       -0.0957198787
+ 12       -0.0477259645
+ 13       -0.0443391290
+ 14       -0.0076575705
+ 15       -0.2899722888
+ 16        0.0459041155
+ 17        0.0030619225
+ 18       -0.0831641920
+ 19        0.0713002424
+ 20       -0.0973543925
+ 21        0.1482431726
+ 22       -0.1870871313
+ 23       -0.1184789534
+ 24       -0.2390949153
+ 25        0.0691572044
+ 26       -0.0114808281
+ 27       -0.0052484814
+ 28        0.0557292261
+ 29       -0.0897013248
+ 30       -0.0356113856
+ 31       -0.0893067301
+ 32       -0.2968804624
+ 33        0.0483417574
+ 34        0.0165532887
+ 35       -0.0984221280
+ 36        0.0520917796
+ 37       -0.1046620482
+ 38        0.1515859135
+ 39       -0.1830026904
+ 40       -0.0652541890
+ 41        0.2348692120
+ 42       -0.2337178092
+ 43       -0.1557155540
+ 44        0.0033087113
+ 45        0.0298766296
+ 46        0.0426576236
+ 47        0.0303245838
+ 48        0.0296691699
+ 49        0.0265493280
+ 50        0.0367007473
+ 51        0.0352866041
+ 52        0.0332075539
+ 53        0.0290044281
+ 54        0.0369814333
+ 55        0.0214984744
+ 56        0.0175634013
+ 57        0.0354881097
+ 58        0.0331763297
+ 59        0.0386277844
+ 60        0.0477335453
+ 61        0.0469417403
+ 62        0.0411916248
+ 63        0.0310984501
+ 64        0.0230038158
+ 65        0.0298538137
+ 66        0.0310995834
+ 67        0.0298609036
+ 68        0.0250483893
+ 69        0.0243597128
+ 70        0.0263299225
+ 71        0.0300795229
+ 72        0.0267536678
+ 73        0.0511337207
+ 74        0.0411392116
+ 75        0.0505754543
+ 76        0.0393748552
+ 77        0.0407132561
+ 78        0.0408319921
+ 79        0.0501958464
+
+ --------------------------------------------------------------------------------
+                                  command: print                                 
+ --------------------------------------------------------------------------------
+
+ excited_mulliken.transition_charges:
+                      1                2                3
+ 1        -0.0010614312    -0.0072086425     0.0000004015
+ 2        -0.0182629968     0.0883495253     0.0005460525
+ 3         0.0326322035     0.0690707574    -0.0001417629
+ 4         0.0166169798    -0.0745200067    -0.0008850091
+ 5        -0.0368352223    -0.0534553873     0.0002766625
+ 6         0.0076015321     0.0864740380     0.0001317614
+ 7         0.0338519388    -0.0474721026    -0.0007717586
+ 8        -0.0029648825     0.0037040035     0.0000665506
+ 9         0.0030944828     0.0039088232     0.0000059870
+ 10       -0.0443463656    -0.0482277224     0.0000946374
+ 11       -0.0012218659    -0.0007787853     0.0000075586
+ 12       -0.0000426085    -0.0011945576     0.0000027036
+ 13       -0.0001494090    -0.0006873377     0.0000033199
+ 14        0.0006307985     0.0011381076    -0.0000268237
+ 15        0.0125160862    -0.0131591331    -0.0007126053
+ 16       -0.0542289277    -0.0409531661    -0.0002215729
+ 17       -0.0321340834     0.0299490697     0.0045514648
+ 18       -0.0253085818    -0.0239607616    -0.0066089206
+ 19       -0.0375684140     0.0528130128     0.0014377926
+ 20        0.0022669746    -0.0024214643    -0.0005464220
+ 21       -0.0048983588     0.0000809433    -0.0016490457
+ 22       -0.0269934489    -0.0027613200    -0.0031755555
+ 23       -0.0006582327    -0.0002031977     0.0018662250
+ 24       -0.0143603955    -0.0877751640     0.0001611793
+ 25       -0.0322845526     0.0508823284     0.0017283755
+ 26        0.0028805795    -0.0033085914    -0.0001209831
+ 27       -0.0033844811    -0.0027691835     0.0000253419
+ 28        0.0511150749     0.0331775650     0.0000658965
+ 29       -0.0007326476     0.0015834452     0.0000332124
+ 30        0.0003640572     0.0013768779    -0.0000126441
+ 31       -0.0002034991     0.0001329608     0.0000087419
+ 32       -0.0152348336     0.0141059386     0.0001453213
+ 33        0.0691006600     0.0290495484    -0.0005788263
+ 34        0.0195237873    -0.0234400180    -0.0004438975
+ 35        0.0294797518     0.0131024799    -0.0002582235
+ 36        0.0375899416    -0.0467000785    -0.0006698300
+ 37       -0.0010703944     0.0021374663     0.0000333193
+ 38        0.0008393308     0.0023687559    -0.0000002200
+ 39        0.0318635981     0.0062976739    -0.0003806284
+ 40        0.0055406243    -0.0037787443    -0.0000774813
+ 41       -0.0012787485     0.0035876035     0.0000335047
+ 42        0.0032836294     0.0075009117    -0.0000257286
+ 43        0.0007716913     0.0014696543     0.0000021718
+ 44        0.0003073241     0.0005312801    -0.0000007511
+ 45        0.0022158977     0.0190432651    -0.0001032180
+ 46       -0.0010027450    -0.0222948963     0.0015797480
+ 47       -0.0018543521    -0.0183450455     0.0001904688
+ 48        0.0002086542    -0.0011181889    -0.0000659417
+ 49       -0.0007533848    -0.0017863709    -0.0000519772
+ 50       -0.0080121983    -0.0003463948     0.0000756253
+ 51        0.0028854813    -0.0018445343    -0.0000522963
+ 52       -0.0020728401     0.0001606698    -0.0000170632
+ 53        0.0070781880     0.0000348601    -0.0000958751
+ 54       -0.0033162902    -0.0031506048     0.0000122536
+ 55        0.0005023942     0.0000886480    -0.0000069758
+ 56        0.0035631907     0.0006601693    -0.0000530889
+ 57       -0.0135645466    -0.0020034617     0.0004958793
+ 58       -0.0128138472     0.0059572486     0.0002819770
+ 59       -0.0135678937     0.0064670797     0.0012648467
+ 60       -0.0023835746    -0.0035894289     0.0053971195
+ 61       -0.0079607813    -0.0003187077     0.0013479168
+ 62       -0.0036161229    -0.0031390245    -0.0047803719
+ 63       -0.0016371318     0.0015548344     0.0001842379
+ 64        0.0044543022     0.0012122281     0.0001974807
+ 65       -0.0011276060    -0.0009735166     0.0002514155
+ 66        0.0029508262     0.0011116057     0.0002750216
+ 67       -0.0059913706    -0.0009336913     0.0001176410
+ 68        0.0051553083    -0.0021662048     0.0000597439
+ 69       -0.0012529383     0.0002555069     0.0001090030
+ 70        0.0060100935    -0.0006674731    -0.0000503751
+ 71        0.0006030226    -0.0019825523     0.0001092685
+ 72       -0.0026077366     0.0013806146    -0.0000752492
+ 73        0.0096369652    -0.0061295441    -0.0001204596
+ 74        0.0115527539     0.0011171563    -0.0002016054
+ 75        0.0103317592    -0.0055011144    -0.0001439832
+ 76        0.0036507382     0.0120517838     0.0000023923
+ 77        0.0017248486     0.0028970470    -0.0000152756
+ 78        0.0032014587     0.0021909273    -0.0000259997
+ 79        0.0011628124     0.0020897042    -0.0000117754
+
+ --------------------------------------------------------------------------------
+                                  command: print                                 
+ --------------------------------------------------------------------------------
+
+ excited_lowdin.transition_charges:
+                      1                2                3
+ 1        -0.0002619947    -0.0059651992    -0.0000019417
+ 2        -0.0258015903     0.1140396369     0.0006893851
+ 3         0.0450789644     0.0883028234    -0.0001683048
+ 4         0.0236493405    -0.0960282982    -0.0007035705
+ 5        -0.0505630839    -0.0689664943     0.0003341352
+ 6         0.0097184309     0.1030462822     0.0001720041
+ 7         0.0443784520    -0.0640959453    -0.0009277405
+ 8        -0.0034519682     0.0028672060     0.0000684992
+ 9         0.0034623136     0.0033616811     0.0000046345
+ 10       -0.0578274321    -0.0649883448     0.0001137960
+ 11       -0.0023104878    -0.0013950983     0.0000107899
+ 12        0.0007984806    -0.0017425258    -0.0000146606
+ 13        0.0001384566    -0.0005804588     0.0000003381
+ 14        0.0005600259     0.0009712759    -0.0000222560
+ 15        0.0215641701    -0.0168613141    -0.0006775870
+ 16       -0.0671657630    -0.0508097858    -0.0004682466
+ 17       -0.0396228252     0.0385951269     0.0058475902
+ 18       -0.0287102318    -0.0309714660    -0.0068863745
+ 19       -0.0471642426     0.0669359217     0.0022720111
+ 20        0.0011782825    -0.0016419742    -0.0003533812
+ 21       -0.0010084497    -0.0003933249    -0.0018202041
+ 22       -0.0269743221    -0.0034141089    -0.0034017414
+ 23       -0.0009226426    -0.0003024771     0.0019048614
+ 24       -0.0181895182    -0.1052671134     0.0001032215
+ 25       -0.0420672079     0.0671074982     0.0021093343
+ 26        0.0035136494    -0.0028722967    -0.0001370021
+ 27       -0.0033286811    -0.0023623572     0.0000264601
+ 28        0.0669029937     0.0458941491     0.0000424590
+ 29       -0.0012388781     0.0018792143     0.0000761290
+ 30        0.0011509503     0.0013103802    -0.0000090869
+ 31        0.0000891667     0.0000620758     0.0000073752
+ 32       -0.0257990898     0.0163052252     0.0002585299
+ 33        0.0863793277     0.0360018331    -0.0006467417
+ 34        0.0229043557    -0.0304613925    -0.0005277491
+ 35        0.0356117431     0.0152404210    -0.0002868286
+ 36        0.0442940145    -0.0576211781    -0.0007903651
+ 37       -0.0009297046     0.0013929884     0.0000223038
+ 38       -0.0034931164     0.0014827719     0.0000514073
+ 39        0.0326765068     0.0058986611    -0.0003782491
+ 40        0.0056475147    -0.0038578017    -0.0000731699
+ 41       -0.0024577181     0.0020150159     0.0000411265
+ 42        0.0031496496     0.0069262958    -0.0000241373
+ 43        0.0007249246     0.0012012853     0.0000012296
+ 44        0.0010372649     0.0013993982    -0.0000075218
+ 45        0.0016868428     0.0133325315    -0.0000681733
+ 46       -0.0005325261    -0.0158151833     0.0010847391
+ 47       -0.0015424958    -0.0130034588     0.0001438008
+ 48        0.0001447393    -0.0009741884    -0.0000518281
+ 49       -0.0005795313    -0.0014469223    -0.0000389097
+ 50       -0.0057651945    -0.0001798332     0.0000524366
+ 51        0.0020981627    -0.0012976717    -0.0000364371
+ 52       -0.0015386646     0.0001154177    -0.0000124685
+ 53        0.0052057291     0.0000482337    -0.0000668396
+ 54       -0.0024912502    -0.0022385439     0.0000092868
+ 55        0.0003849866     0.0000543292    -0.0000051926
+ 56        0.0026481506     0.0005021272    -0.0000375441
+ 57       -0.0100609330    -0.0016466275     0.0003457186
+ 58       -0.0102054411     0.0046903018     0.0001757560
+ 59       -0.0106537405     0.0051220565     0.0010197112
+ 60       -0.0017354884    -0.0026638004     0.0038680020
+ 61       -0.0060005684    -0.0002266644     0.0009298732
+ 62       -0.0026747190    -0.0023579754    -0.0036283484
+ 63       -0.0014987589     0.0015073995     0.0001453532
+ 64        0.0039478906     0.0013715325     0.0001486512
+ 65       -0.0008156834    -0.0007369526     0.0001803579
+ 66        0.0021669200     0.0007636105     0.0001944114
+ 67       -0.0044027266    -0.0007440600     0.0000810610
+ 68        0.0039010209    -0.0016451041     0.0000431503
+ 69       -0.0010767384     0.0001793285     0.0000783616
+ 70        0.0044903520    -0.0005003984    -0.0000369927
+ 71        0.0004472307    -0.0014407487     0.0000776482
+ 72       -0.0019125062     0.0010197647    -0.0000531567
+ 73        0.0074354198    -0.0046540255    -0.0000895213
+ 74        0.0086169581     0.0009387952    -0.0001420209
+ 75        0.0082700892    -0.0044822535    -0.0001136165
+ 76        0.0021974284     0.0095387156     0.0000095277
+ 77        0.0012763000     0.0021097387    -0.0000107973
+ 78        0.0023855206     0.0015973315    -0.0000184754
+ 79        0.0008631943     0.0015249858    -0.0000082851
+
+ --------------------------------------------------------------------------------
+                                  command: print                                 
+ --------------------------------------------------------------------------------
+
+ excited_mulliken.excited_state_1_charges:
+                      1
+ 1         1.1752989641
+ 2        -0.0771619771
+ 3        -0.1428496119
+ 4        -0.1576587275
+ 5        -0.1372194919
+ 6        -0.4264889282
+ 7         0.1372184635
+ 8        -0.0397481850
+ 9        -0.0429641716
+ 10        0.1405852213
+ 11       -0.1834689953
+ 12       -0.1102254700
+ 13       -0.1161593371
+ 14        0.0044584845
+ 15       -0.4449833871
+ 16        0.1148399269
+ 17       -0.0077953276
+ 18       -0.0785550597
+ 19        0.1407539076
+ 20       -0.1903359594
+ 21        0.1724277689
+ 22       -0.2345477375
+ 23       -0.2076343386
+ 24       -0.4446295982
+ 25        0.1429523907
+ 26       -0.0454326243
+ 27       -0.0346599056
+ 28        0.1244120366
+ 29       -0.1750363281
+ 30       -0.0970229573
+ 31       -0.1754503661
+ 32       -0.4195600468
+ 33        0.1129622869
+ 34       -0.0012279783
+ 35       -0.0852325631
+ 36        0.1148522455
+ 37       -0.2033990893
+ 38        0.1896279060
+ 39       -0.2463803490
+ 40       -0.0904868842
+ 41        0.3135500028
+ 42       -0.2762209337
+ 43       -0.2343801727
+ 44       -0.0774945385
+ 45        0.0585123684
+ 46        0.0755895262
+ 47        0.0591500147
+ 48        0.0645443245
+ 49        0.0601745541
+ 50        0.0684960215
+ 51        0.0664475430
+ 52        0.0637902226
+ 53        0.0598879828
+ 54        0.0720041210
+ 55        0.0515026699
+ 56        0.0476332091
+ 57        0.0654714684
+ 58        0.0625009403
+ 59        0.0694417557
+ 60        0.0795412734
+ 61        0.0804288643
+ 62        0.0715786215
+ 63        0.0656221688
+ 64        0.0561313768
+ 65        0.0596078758
+ 66        0.0616403365
+ 67        0.0599072499
+ 68        0.0564459973
+ 69        0.0564073207
+ 70        0.0550414078
+ 71        0.0603214184
+ 72        0.0555227584
+ 73        0.0854931038
+ 74        0.0725264083
+ 75        0.0821194395
+ 76        0.0735607778
+ 77        0.0768824998
+ 78        0.0761920428
+ 79        0.0903537713
+
+ --------------------------------------------------------------------------------
+                                  command: print                                 
+ --------------------------------------------------------------------------------
+
+ excited_lowdin.excited_state_1_charges:
+                      1
+ 1         0.9601748583
+ 2        -0.0923074271
+ 3        -0.1293449830
+ 4        -0.1432266632
+ 5        -0.1194971905
+ 6        -0.3058440130
+ 7         0.1035307604
+ 8        -0.0064730603
+ 9        -0.0084701024
+ 10        0.1161558796
+ 11       -0.0933927377
+ 12       -0.0460507602
+ 13       -0.0443269876
+ 14       -0.0076490156
+ 15       -0.2979356019
+ 16        0.0863623390
+ 17       -0.0106578282
+ 18       -0.0983989878
+ 19        0.1183336859
+ 20       -0.0972049557
+ 21        0.1457655686
+ 22       -0.1922070066
+ 23       -0.1185261099
+ 24       -0.3101564540
+ 25        0.1165064634
+ 26       -0.0114299760
+ 27       -0.0048425774
+ 28        0.1006859738
+ 29       -0.0879499759
+ 30       -0.0342250236
+ 31       -0.0891393986
+ 32       -0.3037103271
+ 33        0.0842239628
+ 34        0.0007609309
+ 35       -0.1082027884
+ 36        0.0842221543
+ 37       -0.1044868493
+ 38        0.1484838654
+ 39       -0.1880904669
+ 40       -0.0651756330
+ 41        0.2342207625
+ 42       -0.2340427075
+ 43       -0.1557388799
+ 44        0.0032749992
+ 45        0.0298360982
+ 46        0.0427320715
+ 47        0.0307305928
+ 48        0.0300534679
+ 49        0.0270222915
+ 50        0.0366666679
+ 51        0.0352608493
+ 52        0.0333179685
+ 53        0.0289874435
+ 54        0.0369760140
+ 55        0.0215232510
+ 56        0.0175804924
+ 57        0.0354891679
+ 58        0.0330265433
+ 59        0.0382835651
+ 60        0.0476762361
+ 61        0.0469369771
+ 62        0.0411330080
+ 63        0.0321327556
+ 64        0.0246823768
+ 65        0.0299243402
+ 66        0.0310938415
+ 67        0.0298823497
+ 68        0.0250413895
+ 69        0.0243690877
+ 70        0.0263329072
+ 71        0.0300849331
+ 72        0.0267530200
+ 73        0.0508125206
+ 74        0.0411106769
+ 75        0.0500658046
+ 76        0.0387444703
+ 77        0.0407137983
+ 78        0.0408297211
+ 79        0.0501955849
+
+ --------------------------------------------------------------------------------
+
+ End time:                               Fri Jul 23 15:57:34 2021
+ Total wall-clock time:                151.775 seconds
+==================================================================================
