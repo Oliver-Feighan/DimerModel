@@ -1,0 +1,12 @@
+#!/bin/bash -l 
+#PBS -l walltime=11:00:00
+#PBS -l select=1:ncpus=24:mem=185gb
+#PBS -N CAMB3LYP_sep_17_dimer_angle_283
+#PBS -j oe
+
+cd ~/DimerModel/Scans/AngleScans/CAMB3LYP
+
+export OMP_NUM_THREADS=1
+export MKL_THREADING_LAYER=TBB
+
+~/.local/src/Qcore/release/qcore -n 18 CAMB3LYP_sep_17_dimer_angle_283.in > CAMB3LYP_sep_17_dimer_angle_283.out
