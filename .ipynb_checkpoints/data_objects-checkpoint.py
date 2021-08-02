@@ -49,20 +49,33 @@ class DimerResult():
         
 class MonomerResult():
     
-    def __init__(self, total_energy, molecular_dipole, partial_charges, transition_energy, transition_dipole, transition_charges, excited_molecular_dipole, excited_partial_charges):
-        
-        self.total_energy = total_energy
-        self.molecular_dipole = molecular_dipole
-        self.partial_charges = partial_charges
+    def __init__(self, *args, **kwargs):
+        self.total_energy = kwargs.get("total_energy")
+        self.molecular_dipole = kwargs.get("molecular_dipole")
 
-        self.transition_energy = transition_energy
-        self.transition_dipole = transition_dipole
-        self.transition_charges = transition_charges
-        
-        self.excited_molecular_dipole = excited_molecular_dipole
-        self.excited_partial_charges = excited_partial_charges
+        self.transition_energy = kwargs.get("transition_energy")
+        self.transition_dipole = kwargs.get("transition_dipole")
 
-        
+        self.excited_state_energy = self.total_energy + kwargs.get("transition_energy")
+        self.excited_molecular_dipole = kwargs.get("excited_molecular_dipole")
+
+        if kwargs.get("lowdin_transition_charges") is not None:
+            self.mulliken_partial_charges = kwargs.get("mulliken_partial_charges")
+            self.mulliken_transition_charges = kwargs.get("mulliken_transition_charges")
+            self.excited_mulliken_partial_charges = kwargs.get("excited_mulliken_partial_charges")
+
+            self.lowdin_partial_charges = kwargs.get("lowdin_partial_charges")
+            self.lowdin_transition_charges = kwargs.get("lowdin_transition_charges")
+            self.excited_lowdin_partial_charges = kwargs.get("excited_lowdin_partial_charges")
+            
+        else:
+            self.mulliken_partial_charges = kwargs.get("partial_charges")
+            self.mulliken_transition_charges = kwargs.get("transition_charges")
+            self.excited_mulliken_partial_charges = kwargs.get("excited_partial_charges")
+            
+            self.lowdin_partial_charges = None
+            self.lowdin_transition_charges = None
+            self.excited_lowdin_partial_charges = None
         
 class FrenkelResult():
     def __init__(self, hamiltonian, tdm_angle, eigvals, eigvecs):
