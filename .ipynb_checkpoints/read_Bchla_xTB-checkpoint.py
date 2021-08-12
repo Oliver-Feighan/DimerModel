@@ -49,7 +49,14 @@ def read_monomer_Bchla_xTB_file(file_name):
             for excited_charges_line in output_file[enum+2:enum+2+79]:
                 excited_partial_charges.append(float(re.findall(r'-?\d+\.\d+', excited_charges_line)[0]))
                     
-    return data_objects.MonomerResult(total_energy, molecular_dipole, partial_charges, transition_energy, transition_dipole, transition_charges, excited_molecular_dipole, excited_partial_charges)
+    return data_objects.MonomerResult(total_energy = total_energy,
+                                      molecular_dipole = molecular_dipole,
+                                      partial_charges = partial_charges,
+                                      transition_energy = transition_energy,
+                                      transition_dipole = transition_dipole,
+                                      transition_charges = transition_charges,
+                                      excited_molecular_dipole = excited_molecular_dipole,
+                                      excited_partial_charges = excited_partial_charges)
     
 def read_dimer_Bchla_xTB_file(file_name):
     output_file = list(open(file_name))
@@ -61,7 +68,7 @@ def read_dimer_Bchla_xTB_file(file_name):
     is_here = None
     
     for enum, line in enumerate(output_file):
-        if "res.energy" in line:
+        if "single.energy" in line:
             total_energy = float(re.findall(r'-?\d+\.\d+', line)[0])
         
         if re.search("res.excitation_\d_energy", line):

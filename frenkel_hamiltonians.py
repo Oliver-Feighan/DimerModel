@@ -12,6 +12,7 @@ def angle(vec1, vec2):
 
 
 def dipole_coupling(tdm1, tdm2, structure1, structure2):
+    
     r_vec = structure1.center - structure2.center
     r_mag = np.linalg.norm(r_vec)
     
@@ -43,7 +44,7 @@ def switch_coupling_func(coupling):
 def state_hamiltonian(results, structures, coupling):
     assert(len(results) == len(structures))
     
-    assert(coupling == "dipole" or coupling == "charges" or coupling == "off")
+    assert(coupling == "dipole" or coupling == "mulliken" or coupling == "lowdin" or coupling == "off")
         
     n_sites = len(structures)
     n_states = n_sites + 1
@@ -73,8 +74,10 @@ def state_hamiltonian(results, structures, coupling):
                             else:
                                 if coupling == "dipole":
                                     interaction += dipole_coupling(results[m].molecular_dipole, results[n].molecular_dipole, structures[m], structures[n])
-                                elif coupling == "charges" or coupling == "off":
-                                    interaction += charge_coupling(results[m].partial_charges, results[n].partial_charges, structures[m], structures[n])
+                                elif coupling == "mulliken" or coupling == "off":
+                                    interaction += charge_coupling(results[m].mulliken_partial_charges, results[n].mulliken_partial_charges, structures[m], structures[n])
+                                elif coupling == "lowdin":
+                                    interaction += charge_coupling(results[m].lowdin_partial_charges, results[n].lowdin_partial_charges, structures[m], structures[n])
                                     
                     hamiltonian[i][j] = energy + interaction
 
@@ -88,10 +91,12 @@ def state_hamiltonian(results, structures, coupling):
                         else:
                             if coupling == "dipole":
                                 interaction += dipole_coupling(results[i-1].excited_molecular_dipole, results[n].molecular_dipole, structures[i-1], structures[n])
-                            elif coupling == "charges" or coupling == "off":
-                                interaction += charge_coupling(results[i-1].excited_partial_charges, results[n].partial_charges, structures[i-1], structures[n])
-                            
+                            elif coupling == "mulliken" or coupling == "off":
+                                interaction += charge_coupling(results[i-1].excited_mulliken_partial_charges, results[n].mulliken_partial_charges, structures[i-1], structures[n])
+                            elif coupling == "lowdin":
+                                interaction += charge_coupling(results[i-1].excited_lowdin_partial_charges, results[n].lowdin_partial_charges, structures[i-1], structures[n])
                     for m in range(n_sites):
+                        
                         for n in range(n_sites):
                             if m >= n:
                                 continue
@@ -100,9 +105,11 @@ def state_hamiltonian(results, structures, coupling):
                             else: 
                                 if coupling == "dipole":
                                     interaction += dipole_coupling(results[m].molecular_dipole, results[n].molecular_dipole, structures[m], structures[n])
-                                elif coupling == "charges" or coupling == "off":
-                                    interaction += charge_coupling(results[m].partial_charges, results[n].partial_charges, structures[m], structures[n])
-                    
+                                elif coupling == "mulliken" or coupling == "off":
+                                    interaction += charge_coupling(results[m].mulliken_partial_charges, results[n].mulliken_partial_charges, structures[m], structures[n])
+                                elif coupling == "lowdin":
+                                    interaction += charge_coupling(results[m].lowdin_partial_charges, results[n].lowdin_partial_charges, structures[m], structures[n])
+
                     hamiltonian[i][j] = energy + interaction
 
             elif j > i:
@@ -115,15 +122,19 @@ def state_hamiltonian(results, structures, coupling):
                         else:
                             if coupling == "dipole":
                                 hamiltonian[i][j] += dipole_coupling(results[i].molecular_dipole, results[m].transition_dipole, structures[i], structures[m])
-                            elif coupling == "charges":
-                                hamiltonian[i][j] += charge_coupling(results[i].partial_charges, results[m].transition_charges, structures[i], structures[m])
+                            elif coupling == "mulliken":
+                                hamiltonian[i][j] += charge_coupling(results[i].mulliken_partial_charges, results[m].mulliken_transition_charges, structures[i], structures[m])
+                            elif coupling == "lowdin":
+                                hamiltonian[i][j] += charge_coupling(results[i].lowdin_partial_charges, results[m].lowdin_transition_charges, structures[i], structures[m])
             
                 else:
                     #coupling of excited i-th chromophore to j-th chromophore
                     if coupling == "dipole":
                         hamiltonian[i][j] += dipole_coupling(results[i-1].transition_dipole, results[j-1].transition_dipole, structures[i-1], structures[j-1])
-                    elif coupling == "charges":
-                        hamiltonian[i][j] += charge_coupling(results[i-1].transition_charges, results[j-1].transition_charges, structures[i-1], structures[j-1])
+                    elif coupling == "mulliken":
+                        hamiltonian[i][j] += charge_coupling(results[i-1].mulliken_transition_charges, results[j-1].mulliken_transition_charges, structures[i-1], structures[j-1])
+                    elif coupling == "lowdin":
+                        hamiltonian[i][j] += charge_coupling(results[i-1].lowdin_transition_charges, results[j-1].lowdin_transition_charges, structures[i-1], structures[j-1])
                     
     return np.tril(hamiltonian.T) + np.triu(hamiltonian, k=1)
 

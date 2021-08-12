@@ -2,87 +2,121 @@ import re
 import numpy as np
 import data_objects
 
+def read_dipole(lines):
+    result = []
+    
+    for line in lines:
+        result.append(float(re.findall(r'-?\d+\.\d+', line)[0]))
+        
+    return np.array(result)
+
+def read_charges(lines):
+    result = []
+    
+    for line in lines:
+        result.append(float(re.findall(r'-?\d+\.\d+', line)[0]))
+        
+    return np.array(result)
+
 def read_monomer_TDDFT_file(file_name):    
     output_file = list(open(file_name))
-                
-    energy = None
-    tdm = None
-    is_here = True
     
-    excited_state_lines = []
-
+    n_atoms = 79
+    
+    total_energy = 0
+    excitation_energy = 0
+    
+    ground_molecular_dipole = None
+    transition_dipole = None
+    excited_state_dipole = None
+    
+    ground_mulliken_charges = None
+    ground_lowdin_charges = None
+    
+    transition_mulliken_charges = None
+    transition_lowdin_charges = None
+    
+    excited_mulliken_charges = None
+    excited_lowdin_charges = None
+    
     for enum, line in enumerate(output_file):
-        if "Excited State" in line or "Transition Dipole Moments (a.u.)" in line or "Oscillator Strengths (a.u.):" in line:
-            excited_state_lines.append(enum)
+        if "ground.energy" in line:
+            total_energy = float(re.findall(r'-?\d+\.\d+', line)[0])
 
-    if(len(excited_state_lines) == 0):
-        return (False, None, None)
+        elif "Excited State   1" in line:
+            excitation_energy = float(re.findall(r'-?\d+\.\d+', line)[0])
             
-    homo_lumo_state = 0
-    homo_lumo_coeff = 0
-    homo_lumo_state_line = None
-    homo_lumo_dipole_line = None
-
-    for i in range(len(excited_state_lines)-2):
-        for line in output_file[excited_state_lines[i]:excited_state_lines[i+1]]:
-            if "->" in line:
-                MOs = re.findall(r'\d+', line)
-                if abs(int(MOs[1]) - int(MOs[0])) != 1:
-                    continue
-                coeff = re.findall(r'-?\d+\.\d+', line)[0]
-                if abs(float(coeff)) > homo_lumo_coeff:
-                    homo_lumo_state = i+1
-                    homo_lumo_coeff = float(coeff)
-                    homo_lumo_state_line = output_file[excited_state_lines[i]]
-
-    for line in output_file[excited_state_lines[-2]:excited_state_lines[-1]]:
-        if re.match(fr' {homo_lumo_state}', line):
-            homo_lumo_dipole_line = line
-
-    nums = re.findall(r'\d+\.\d+', homo_lumo_state_line)
-    energy= float(nums[0])
-    tdm = np.array([float(x) for x in re.findall(r'-?\d+\.\d+', homo_lumo_dipole_line)])
-
-        
-    is_here = all([energy is not None, tdm is not None])
+        elif "ground.dipole" in line:
+            ground_molecular_dipole = read_dipole(output_file[enum+2:enum+5])
+            
+        elif "excited_mulliken.transition_dipoles" in line:
+            transition_dipole = read_dipole(output_file[enum+2:enum+5])
+            
+        elif "excited_mulliken.excited_state_dipoles" in line:
+            excited_state_dipole = read_dipole(output_file[enum+2:enum+5])
+            
+        elif "excited_lowdin.transition_dipoles" in line:
+            if((read_dipole(output_file[enum+2:enum+5]) != transition_dipole).all()):
+                print(read_dipole(output_file[enum+2:enum+5]))
+                print(transition_dipole)
+            
+        elif "excited_lowdin.excited_state_dipoles" in line:
+            if((read_dipole(output_file[enum+2:enum+5]) != excited_state_dipole).all()):
+                print(read_dipole(output_file[enum+2:enum+5]))
+                print(excited_state_dipole)
+            
+        elif "ground_mulliken.charges" in line:
+            ground_mulliken_charges = read_charges(output_file[enum+2:enum+2+n_atoms])
+            
+        elif "ground_lowdin.charges" in line:
+            ground_lowdin_charges = read_charges(output_file[enum+2:enum+2+n_atoms])
+            
+        elif "excited_mulliken.transition_charges" in line:
+            transition_mulliken_charges = read_charges(output_file[enum+2:enum+2+n_atoms])
+            
+        elif "excited_lowdin.transition_charges" in line:
+            transition_lowdin_charges = read_charges(output_file[enum+2:enum+2+n_atoms])
+                
+        elif "excited_mulliken.excited_state_1_charges" in line:
+            excited_mulliken_charges = read_charges(output_file[enum+2:enum+2+n_atoms])
+                
+        elif "excited_lowdin.excited_state_1_charges" in line:
+            excited_lowdin_charges = read_charges(output_file[enum+2:enum+2+n_atoms])
     
-    if not is_here:
-        print(file_name)
-        return(is_here, None, None)
-    else:
-        return(is_here, energy, tdm)
-    
+    return data_objects.MonomerResult(total_energy = total_energy,
+                                      molecular_dipole =  ground_molecular_dipole,
+                                      mulliken_partial_charges = ground_mulliken_charges,
+                                      lowdin_partial_charges = ground_lowdin_charges,
+                                      
+                                      transition_energy = excitation_energy,
+                                      transition_dipole = transition_dipole,
+                                      mulliken_transition_charges = transition_mulliken_charges,
+                                      lowdin_transition_charges = transition_lowdin_charges,
+                                      
+                                      excited_molecular_dipole = excited_state_dipole,
+                                      excited_mulliken_partial_charges = excited_mulliken_charges,
+                                      excited_lowdin_partial_charges = excited_lowdin_charges)
     
 def read_dimer_TDDFT_file(file_name):    
     output_file = list(open(file_name))
                 
     total_energy = 0
     
-    excited_state_lines = []
-    transition_dipole_start = None
-    oscillator_strength_start = None
-
+    transition_energies = []
+    transition_dipoles = []
+    
     for enum, line in enumerate(output_file):
-        if "Total ENERGY" in line:
-            total_energy = re.findall(r'-?\d+\.\d+', line)
+        if "single.energy" in line:
+            total_energy = float(re.findall(r'-?\d+\.\d+', line)[0])
         
-        if "Excited State" in line:
-            excited_state_lines.append(enum)
+        elif "Excited State" in line:
+            transition_energies.append(float(re.findall(r'-?\d+\.\d+', line)[0]))
             
         elif "Transition Dipole Moments (a.u.)" in line:
-            transition_dipole_start = enum
-            
-        elif "Oscillator Strengths (a.u.):" in line:
-            oscillator_strength_start = enum
+            for tdm_line in output_file[enum+2:enum+2+3]:
+                tdms_str = re.findall(r'-?\d+\.\d+', tdm_line)
+                transition_dipoles.append(np.array([float(x) for x in tdms_str]))
 
-    energies=[]
-    tdms=[]
-    
-    for enum, line in enumerate(excited_state_lines):
-        energies_strs = re.findall(r'-?\d*\.\d*', output_file[line])
-        energies.append(float(energies_strs[0]))
-        
-        tdms_str = re.findall(r'-?\d*\.\d*', output_file[transition_dipole_start+enum+2])
-        tdms.append(np.array([float(x) for x in tdms_str]))
-
-    return data_objects.DimerResult(total_energy, energies, tdms)
+    return data_objects.DimerResult(total_energy, 
+                                    transition_energies, 
+                                    transition_dipoles)
