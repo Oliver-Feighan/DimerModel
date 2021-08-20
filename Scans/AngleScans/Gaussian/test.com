@@ -1,5 +1,5 @@
 %chk=acetone_td
-%nproc=4
+%nproc=24
 #p cam-b3lyp/aug-cc-pvtz td=(nstates=6,root=1)
 
 TDDFT excited states in gaussian
