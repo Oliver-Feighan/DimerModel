@@ -18,7 +18,7 @@ def read_gaussian(file_name):
             transition_energies.append(float(values[0]) / 27.2114) #eV to hartree
 
         if len(total_energy_match) != 0:
-            values = re.findall(r'\d+.\d+', line)
+            values = re.findall(r'-?\d+.\d+', line)
             total_energy = float(values[0])
 
         if "transition electric dipole moments (Au):" in line:
