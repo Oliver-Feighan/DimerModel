@@ -87,15 +87,16 @@ def write_dimer(residue1, residue2, positions, file_name, truncate=True):
 
     
 if __name__ == "__main__":
-    files = glob.glob("clean_pdbs/*pdb")
+    #files = glob.glob("clean_pdbs/*pdb")
 
-    for file in files:
-        frame_n = int(re.findall(r'\d+', file)[1])
-
-        if frame_n > 200:
-            continue
-
-        pdb = PDBFile("clean_pdbs/clean_md1_frame_1.pdb")
+    n_frames = 500
+    
+    for i in range(n_frames):
+        frame_number = list(range(1, 50001, 50))[int(1000/10) * i]
+    
+        file = f"clean_pdbs/clean_md1_frame_{frame_number}.pdb"
+        
+        pdb = PDBFile(file)
 
         positions = pdb.getPositions(asNumpy = True)
         topology = pdb.getTopology()
@@ -103,10 +104,10 @@ if __name__ == "__main__":
         BCL_residues = get_BCL_residues(topology)
 
         for enum1, residue1 in enumerate(BCL_residues):
-            write_monomer(residue1, positions, f"trunc_bchla_{enum1+1}_frame_{frame_n}.xyz")
+            write_monomer(residue1, positions, f"trunc_bchla_{enum1+1}_frame_{frame_number}.xyz")
             
             for enum2, residue2 in enumerate(BCL_residues):
                 if enum1 >= enum2:
                     continue
                 
-                write_dimer(residue1, residue2, positions, f"trunc_bchla_{enum1+1}_bchla_{enum2+1}_frame_{frame_n}.xyz")
+                write_dimer(residue1, residue2, positions, f"trunc_bchla_{enum1+1}_bchla_{enum2+1}_frame_{frame_number}.xyz")
