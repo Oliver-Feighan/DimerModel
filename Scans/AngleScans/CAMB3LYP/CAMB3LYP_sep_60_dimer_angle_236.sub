@@ -1,12 +1,12 @@
-#!/bin/bash -l 
-#PBS -l walltime=11:00:00
-#PBS -l select=1:ncpus=24:mem=185gb
+#!/bin/bash
 #PBS -N CAMB3LYP_sep_60_dimer_angle_236
+#PBS -l walltime=2:00:00
 #PBS -j oe
+#PBS -l select=1:ncpus=24:mem=180gb
+#PBS -M of15641@bristol.ac.uk
 
-cd ~/DimerModel/Scans/AngleScans/CAMB3LYP
+cd $PBS_O_WORKDIR
 
-export OMP_NUM_THREADS=1
-export MKL_THREADING_LAYER=TBB
+module load apps/gaussian/16
 
-~/.local/src/Qcore/release/qcore -n 18 CAMB3LYP_sep_60_dimer_angle_236.in > CAMB3LYP_sep_60_dimer_angle_236.out
+g16 < CAMB3LYP_sep_60_dimer_angle_236.com > CAMB3LYP_sep_60_dimer_angle_236.log

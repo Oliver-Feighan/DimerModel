@@ -21,9 +21,10 @@ for angle in $(cd angle_xyzs; ls *.xyz; cd ../); do
     #sed "s/NAME/..\/..\/angle_xyzs\/${angle/.xyz/}/g" Bchla_template.in > AngleScans/Bchla_xTB/Bchla_${angle/.xyz/}.in
     #sed "s/NAME/${angle/.xyz/}/g" Bchla_template.sub > AngleScans/Bchla_xTB/Bchla_${angle/.xyz/}.sub
 
-    sed "s/NAME/..\/..\/angle_xyzs\/${angle/.xyz/}/g" CAMB3LYP_template.in > AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.in
+    sed "s/NAME/${angle/.xyz/}/g" CAMB3LYP_template.com > AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.com
+    sed "1d;2d" angle_xyzs/${angle} >> AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.com
+    echo "" >> AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.com
     sed "s/NAME/${angle/.xyz/}/g" CAMB3LYP_template.sub > AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.sub
-    #sed -i "s/DimerModel\/CAMB3LYP/DimerModel\/Scans\/AngleScans\/CAMB3LYP/" AngleScans/CAMB3LYP/CAMB3LYP_${angle/.xyz/}.sub
 
     #sed "s/NAME/..\/..\/angle_xyzs\/${angle/.xyz/}/g" BLYP_template.in > AngleScans/BLYP/BLYP_${angle/.xyz/}.in
     #sed "s/NAME/${angle/.xyz/}/g" BLYP_template.sub > AngleScans/BLYP/BLYP_${angle/.xyz/}.sub
