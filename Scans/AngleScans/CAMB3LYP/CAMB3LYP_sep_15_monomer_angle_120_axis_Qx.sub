@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N CAMB3LYP_sep_15_monomer_angle_120_axis_Qx
+#PBS -l walltime=2:00:00
+#PBS -j oe
+#PBS -l select=1:ncpus=24:mem=180gb
+#PBS -M of15641@bristol.ac.uk
+
+cd $PBS_O_WORKDIR
+
+module load apps/gaussian/16
+
+g16 < CAMB3LYP_sep_15_monomer_angle_120_axis_Qx.com > CAMB3LYP_sep_15_monomer_angle_120_axis_Qx.log
