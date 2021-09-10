@@ -87,12 +87,12 @@ def write_dimer(residue1, residue2, positions, file_name, truncate=True):
 
     
 if __name__ == "__main__":
-    #files = glob.glob("clean_pdbs/*pdb")
-
     n_frames = 500
     
     for i in range(n_frames):
-        frame_number = list(range(1, 50001, 50))[int(1000/10) * i]
+        frame_number = list(range(1, 50001, 50))[int(1000/n_frames) * i]
+    
+        print(frame_number)
     
         file = f"clean_pdbs/clean_md1_frame_{frame_number}.pdb"
         
