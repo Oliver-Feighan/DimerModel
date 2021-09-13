@@ -78,10 +78,19 @@ def run_qcore(qcore_string):
     }
     
     
-def get_data():
-
-    with open("exciton_data.json") as f:
-        return json.load(f)
+def set_data():
+    return {
+        "monomer A" : [],
+        "monomer B" : [],
+        "ring A" : [],
+        "ring B" : [],
+        "frame" : [],
+        "distance" : [],
+        "charge centre distance" : [],
+        "coupling" : [],
+        "exciton states" : [],
+        "exciton transition" : [],
+    }
 
 def add_to_data(data, variable, value):
     data[variable].append(value)
