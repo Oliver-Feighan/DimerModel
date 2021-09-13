@@ -5,7 +5,7 @@ import json
 QCORE_PATH = os.environ["QCORE_PATH"]
 
 def get_current_results():
-    
+    json.
 
 
 if __name__ == "__main__":
