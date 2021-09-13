@@ -1,4 +1,4 @@
-for frame in $(seq 1 5000 49951); do
+for frame in $(seq 1 100 49951); do
     for i in $(seq 1 27); do
         for j in $(seq ${i} 27); do
         
