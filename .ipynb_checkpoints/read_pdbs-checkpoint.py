@@ -135,20 +135,19 @@ def read_pdb(file_name):
     return BCL_residues, positions
     
 if __name__ == "__main__":
-    n_frames = 500
+    frames = [1, 251, 501]
     
-    for i in range(n_frames):
-        frame_number = list(range(1, 50001, 50))[int(1000/n_frames) * i]
+    for frame in frames:
     
-        file = f"clean_pdbs/clean_md1_frame_{frame_number}.pdb"
+        file = f"clean_pdbs/clean_md1_frame_{frame}.pdb"
         
-        BCL_resides, positions = read_pdb(file)
+        BCL_residues, positions = read_pdb(file)
         
         for enum1, residue1 in enumerate(BCL_residues):
-            write_monomer(residue1, positions, f"trunc_bchla_{enum1+1}_frame_{frame_number}.xyz")
+            write_monomer(residue1, positions, f"trunc_bchla_{enum1+1}_frame_{frame}.xyz")
             
             for enum2, residue2 in enumerate(BCL_residues):
                 if enum1 >= enum2:
                     continue
                 
-                write_dimer(residue1, residue2, positions, f"trunc_bchla_{enum1+1}_bchla_{enum2+1}_frame_{frame_number}.xyz")
+                write_dimer(residue1, residue2, positions, f"trunc_bchla_{enum1+1}_bchla_{enum2+1}_frame_{frame}.xyz")

@@ -89,7 +89,7 @@ def set_data():
         "charge centre distance" : [],
         "coupling" : [],
         "exciton states" : [],
-        "exciton transition" : [],
+        "exciton transitions" : [],
     }
 
 def add_to_data(data, variable, value):
@@ -140,7 +140,7 @@ if __name__ == "__main__":
         for enum, qcore_res in enumerate(qcore_results):
             i, j = index_tuples[enum]
 
-            row = [i, j, assign_ring(i), assign_ring(j), frame, distances[enum], qcore_res["distances"][1], qcore_res["couplings"][1], qcore_res["eigenvalues"], [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]]]
+            row = [i, j, assign_ring(i), assign_ring(j), frame, distances[enum], qcore_res["distances"][1], abs(qcore_res["couplings"][1]), qcore_res["eigenvalues"], [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]]]
         
             for col, value in zip(data.keys(), row):
                 data = add_to_data(data, col, value)

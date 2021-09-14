@@ -89,7 +89,7 @@ def set_data():
         "charge centre distance" : [],
         "coupling" : [],
         "exciton states" : [],
-        "exciton transition" : [],
+        "exciton transitions" : [],
     }
 
 def add_to_data(data, variable, value):
@@ -120,14 +120,14 @@ def write_qcore_str(xyzA, xyzB):
 
     
 if __name__ == "__main__":
-    data = get_data()
+    data = set_data()
     
     ring_assingments = json.load(open("../ring_assignment.json"))
     assign_ring = lambda i : ring_assingments["rings"][f"{i}"]
                 
     index_tuples = is_and_js()
     
-    for frame in [1]: #range(1, 1, 100):
+    for frame in range(1, 49951, 250):
         BCL_residues, positions = read_pdbs.read_pdb(f"../clean_pdbs/clean_md1_frame_{frame}.pdb")
             
         distances = list(map(lambda i_j : Mg_Mg_distance(BCL_residues[i_j[0]-1], BCL_residues[i_j[1]-1], positions), index_tuples))
@@ -140,7 +140,7 @@ if __name__ == "__main__":
         for enum, qcore_res in enumerate(qcore_results):
             i, j = index_tuples[enum]
 
-            row = [i, j, assign_ring(i), assign_ring(j), frame, distances[enum], qcore_res["distances"][1], qcore_res["couplings"][1], qcore_res["eigenvalues"], [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]]]
+            row = [i, j, assign_ring(i), assign_ring(j), frame, distances[enum], qcore_res["distances"][1], abs(qcore_res["couplings"][1]), qcore_res["eigenvalues"], [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]]]
         
             for col, value in zip(data.keys(), row):
                 data = add_to_data(data, col, value)
