@@ -120,14 +120,14 @@ def write_qcore_str(xyzA, xyzB):
 
     
 if __name__ == "__main__":
-    data = get_data()
+    data = set_data()
     
     ring_assingments = json.load(open("../ring_assignment.json"))
     assign_ring = lambda i : ring_assingments["rings"][f"{i}"]
                 
     index_tuples = is_and_js()
     
-    for frame in [1]: #range(1, 1, 100):
+    for frame in range(1, 49951, 250):
         BCL_residues, positions = read_pdbs.read_pdb(f"../clean_pdbs/clean_md1_frame_{frame}.pdb")
             
         distances = list(map(lambda i_j : Mg_Mg_distance(BCL_residues[i_j[0]-1], BCL_residues[i_j[1]-1], positions), index_tuples))
