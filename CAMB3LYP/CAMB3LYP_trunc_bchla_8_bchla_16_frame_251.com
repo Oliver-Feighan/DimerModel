@@ -1,6 +1,6 @@
 %nproc=24
 %mem=175gb
-#p cam-b3lyp/Def2SVP td=(nstates=5)
+#p cam-b3lyp/Def2SVP td=(nstates=5) density=(transition=1)
 
 TDDFT excited states in gaussian
 
