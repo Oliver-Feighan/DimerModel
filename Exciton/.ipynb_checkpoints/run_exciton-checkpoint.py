@@ -96,17 +96,19 @@ def run_dimer(qcore_string):
 
     couplings = read_indexed_values(json_result, "res", "couplings_inv_cm")
     distances = read_indexed_values(json_result, "res", "distances")
+    
+    eigenvectors = read_hex_data(json_reuslts, "res", "eigenvectors")
 
     return {
         "eigenvalues" : eigenvalues.tolist(),
         "charge_centres" : charge_centres,
         "couplings" : couplings,
-            "distances" : distances
+        "distances" : distances,
+        "eigenvectors" : eigenvectors
     }
     
-def set_data(dimer=True):
-    if dimer:
-        return {
+def set_dimer_data():
+    return {
             "monomer A" : [],
             "monomer B" : [],
             "ring A" : [],
@@ -117,10 +119,11 @@ def set_data(dimer=True):
             "coupling" : [],
             "exciton states" : [],
             "exciton transitions" : [],
+            "eigenvectors" : []
         }
     
-    else:
-        return {
+def set_monomer_data():
+    return {
             "monomer" : [],
             "ring" : [],
             "frame" : [],
@@ -162,8 +165,8 @@ def write_qcore_str(xyzA, xyzB = None):
         
     
 if __name__ == "__main__":
-    monomer_data = set_data(dimer = False)
-    dimer_data = set_data()
+    monomer_data = set_monomer_data()
+    dimer_data = set_dimer_data()
     
     ring_assingments = json.load(open("../ring_assignment.json"))
     assign_ring = lambda i : ring_assingments["rings"][f"{i}"]
@@ -187,7 +190,15 @@ if __name__ == "__main__":
         for enum, qcore_res in enumerate(qcore_results):
             i, j = dimer_indices[enum]
 
-            row = [i, j, assign_ring(i), assign_ring(j), frame, distances[enum], qcore_res["distances"][1], abs(qcore_res["couplings"][1]), qcore_res["eigenvalues"], [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]]]
+            row = [i, j, 
+                   assign_ring(i), assign_ring(j),
+                   frame,
+                   distances[enum], qcore_res["distances"][1],
+                   abs(qcore_res["couplings"][1]),
+                   qcore_res["eigenvalues"],
+                   [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]],
+                   qcore-res["eigenvectors"]
+                  ]
         
             for col, value in zip(dimer_data.keys(), row):
                 dimer_data = add_to_data(dimer_data, col, value)
