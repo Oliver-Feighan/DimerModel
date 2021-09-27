@@ -1,0 +1,42 @@
+ 
+ University of Bristol ACRC HPC Bluepebble Service
+ -------------------------------------------------
+ Job run_excitons, jobid 3646657.bp1, username of15641 - started execution at 14:43:40 Fri 24/09/21 on node bp1-compute00156.data.bp.acrc.priv
+ 
+ 
+ University of Bristol ACRC HPC Bluepebble Service
+ -------------------------------------------------
+ Job run_excitons, jobid 3646657.bp1, username of15641 - started execution at 14:43:41 Fri 24/09/21 on node bp1-compute00156.data.bp.acrc.priv
+ 
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/of15641/.conda/envs/openmm/lib/python3.9/concurrent/futures/process.py", line 243, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+  File "/home/of15641/.conda/envs/openmm/lib/python3.9/concurrent/futures/process.py", line 202, in _process_chunk
+    return [fn(*args) for args in chunk]
+  File "/home/of15641/.conda/envs/openmm/lib/python3.9/concurrent/futures/process.py", line 202, in <listcomp>
+    return [fn(*args) for args in chunk]
+  File "/home/of15641/DimerModel/Exciton/run_exciton.py", line 100, in run_dimer
+    eigenvectors = read_hex_data(json_reuslts, "res", "eigenvectors")
+NameError: name 'json_reuslts' is not defined
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/of15641/DimerModel/Exciton/run_exciton.py", line 188, in <module>
+    qcore_results = list(pool.map(run_dimer, qcore_strings))
+  File "/home/of15641/.conda/envs/openmm/lib/python3.9/concurrent/futures/process.py", line 559, in _chain_from_iterable_of_lists
+    for element in iterable:
+  File "/home/of15641/.conda/envs/openmm/lib/python3.9/concurrent/futures/_base.py", line 608, in result_iterator
+    yield fs.pop().result()
+  File "/home/of15641/.conda/envs/openmm/lib/python3.9/concurrent/futures/_base.py", line 445, in result
+    return self.__get_result()
+  File "/home/of15641/.conda/envs/openmm/lib/python3.9/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+NameError: name 'json_reuslts' is not defined
+
+real	0m12.581s
+user	0m33.807s
+sys	0m20.929s

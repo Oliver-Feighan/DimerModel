@@ -97,7 +97,7 @@ def run_dimer(qcore_string):
     couplings = read_indexed_values(json_result, "res", "couplings_inv_cm")
     distances = read_indexed_values(json_result, "res", "distances")
     
-    eigenvectors = read_hex_data(json_reuslts, "res", "eigenvectors")
+    eigenvectors = read_hex_data(json_result, "res", "eigenvectors")
 
     return {
         "eigenvalues" : eigenvalues.tolist(),
