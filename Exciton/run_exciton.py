@@ -104,7 +104,7 @@ def run_dimer(qcore_string):
         "charge_centres" : charge_centres,
         "couplings" : couplings,
         "distances" : distances,
-        "eigenvectors" : eigenvectors
+        "eigenvectors" : [eigenvectors[(i*3):(i*3)+3].tolist() for i in range(3)]
     }
     
 def set_dimer_data():
@@ -119,7 +119,7 @@ def set_dimer_data():
             "coupling" : [],
             "exciton states" : [],
             "exciton transitions" : [],
-            "eigenvectors" : []
+            "exciton eigenvectors" : []
         }
     
 def set_monomer_data():
@@ -197,7 +197,7 @@ if __name__ == "__main__":
                    abs(qcore_res["couplings"][1]),
                    qcore_res["eigenvalues"],
                    [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]],
-                   qcore-res["eigenvectors"]
+                   qcore_res["eigenvectors"]
                   ]
         
             for col, value in zip(dimer_data.keys(), row):
