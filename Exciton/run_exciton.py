@@ -136,12 +136,8 @@ def add_to_data(data, variable, value):
     
     return data
 
-def dump_data(data, dimer=True):
-    if dimer:
-        with open("exciton_dimer_data.json", 'w') as f:
-            return json.dump(data, f)
-    else:
-        with open("exciton_monomer_data.json", 'w') as f:
+def dump_data(data, file_name):
+    with open(file_name, 'w') as f:
             return json.dump(data, f)
     
 def is_and_js():
@@ -154,10 +150,12 @@ def is_and_js():
     return result
     
     
-def write_qcore_str(xyzA, xyzB = None):
+def write_qcore_str(xyzA, xyzB = None, embedding=True):
+    embedding_qcore = "true" if embedding else "false"
+    
     if xyzB:
-        qcore_str_template = "res := excitons(structure(xyz = {monomerA}) structure(xyz = {monomerB}) use_xtb = true hamiltonian = states)"
-        return qcore_str_template.format(monomerA = xyzA, monomerB = xyzB)
+        qcore_str_template = "res := excitons(structure(xyz = {monomerA}) structure(xyz = {monomerB}) embedding={embedding} use_chlorophyll = true hamiltonian = states)"
+        return qcore_str_template.format(monomerA = xyzA, monomerB = xyzB, embedding=embedding_qcore)
     
     else:
         qcore_str_template = "res := xtb(structure(xyz = {monomerA}) model='chlorophyll')"
@@ -176,13 +174,16 @@ if __name__ == "__main__":
     
     frame_range = range(1, 751, 250)
   
-
+    # with embedding
     for frame in frame_range:
         BCL_residues, positions = read_pdbs.read_pdb(f"../clean_pdbs/clean_md1_frame_{frame}.pdb")
             
         distances = list(map(lambda i_j : Mg_Mg_distance(BCL_residues[i_j[0]-1], BCL_residues[i_j[1]-1], positions), dimer_indices))
-                    
-        qcore_strings = map(lambda i_j : write_qcore_str(xyzA = read_pdbs.get_qcore_xyz(BCL_residues[i_j[0]-1], positions), xyzB = read_pdbs.get_qcore_xyz(BCL_residues[i_j[1]-1], positions)), dimer_indices)
+        
+        qcore_strings = map(lambda i_j : write_qcore_str(xyzA = read_pdbs.get_qcore_xyz(BCL_residues[i_j[0]-1], positions), 
+                                                         xyzB = read_pdbs.get_qcore_xyz(BCL_residues[i_j[1]-1], positions), 
+                                                         embedding=True), 
+                            dimer_indices)
             
         with ProcessPoolExecutor(max_workers=20) as pool:
             qcore_results = list(pool.map(run_dimer, qcore_strings))
@@ -203,7 +204,41 @@ if __name__ == "__main__":
             for col, value in zip(dimer_data.keys(), row):
                 dimer_data = add_to_data(dimer_data, col, value)
                 
-    dump_data(dimer_data)
+    dump_data(dimer_data, "exciton_dimer_data.json")
+    
+    
+    dimer_no_embedding_data = set_dimer_data()
+    #without embedding
+    for frame in frame_range:
+        BCL_residues, positions = read_pdbs.read_pdb(f"../clean_pdbs/clean_md1_frame_{frame}.pdb")
+            
+        distances = list(map(lambda i_j : Mg_Mg_distance(BCL_residues[i_j[0]-1], BCL_residues[i_j[1]-1], positions), dimer_indices))
+                    
+        qcore_strings = map(lambda i_j : write_qcore_str(xyzA = read_pdbs.get_qcore_xyz(BCL_residues[i_j[0]-1], positions), 
+                                                         xyzB = read_pdbs.get_qcore_xyz(BCL_residues[i_j[1]-1], positions), 
+                                                         embedding=False), 
+                            dimer_indices)
+            
+        with ProcessPoolExecutor(max_workers=20) as pool:
+            qcore_results = list(pool.map(run_dimer, qcore_strings))
+    
+        for enum, qcore_res in enumerate(qcore_results):
+            i, j = dimer_indices[enum]
+
+            row = [i, j, 
+                   assign_ring(i), assign_ring(j),
+                   frame,
+                   distances[enum], qcore_res["distances"][1],
+                   abs(qcore_res["couplings"][1]),
+                   qcore_res["eigenvalues"],
+                   [x - qcore_res["eigenvalues"][0] for x in qcore_res["eigenvalues"][1:]],
+                   qcore_res["eigenvectors"]
+                  ]
+        
+            for col, value in zip(dimer_data.keys(), row):
+                dimer_no_embedding_data = add_to_data(dimer_no_embedding_data, col, value)
+                
+    dump_data(dimer_no_embedding_data, "exciton_no_embedding_dimer_data.json")
 
     
     for frame in frame_range:
@@ -224,7 +259,7 @@ if __name__ == "__main__":
             for col, value in zip(monomer_data.keys(), row):
                 monomer_data = add_to_data(monomer_data, col, value)
     
-    dump_data(monomer_data, dimer=False)
+    dump_data(monomer_data, "exciton_monomer_data.json")
     
     quit(0)
                 
