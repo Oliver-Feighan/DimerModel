@@ -1,5 +1,5 @@
-from simtk.openmm.app import *
-from simtk.openmm import *
+from openmm.app import *
+from openmm import *
 
 import glob
 import re
