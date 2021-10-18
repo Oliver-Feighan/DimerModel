@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N PBE0_trunc_bchla_4_bchla_18_frame_501
+#PBS -l walltime=2:00:00
+#PBS -j oe
+#PBS -l select=1:ncpus=24:mem=180gb
+#PBS -M of15641@bristol.ac.uk
+
+cd $PBS_O_WORKDIR
+
+module load apps/gaussian/16
+
+g16 < PBE0_trunc_bchla_4_bchla_18_frame_501.com > PBE0_trunc_bchla_4_bchla_18_frame_501.log
