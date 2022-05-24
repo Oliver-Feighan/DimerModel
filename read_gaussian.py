@@ -46,7 +46,7 @@ def get_excited_state_lines(lines):
     result = []
     
     for enum, line in enumerate(lines):
-        if re.search(r'Excited State   \d:', line):
+        if re.search(r'Excited State   \d:', line) or re.search(r'SavETr', line):
             result.append(enum)
             
     return result
@@ -56,9 +56,19 @@ def read_gaussian(file_name):
     
     total_energy = 0.
     transition_energies = []
+    transition_characters = []
     transition_dipoles = []
     
     excited_state_lines = get_excited_state_lines(lines)
+    
+    for i in range(len(excited_state_lines)-1):
+        character = []
+        for line in lines[excited_state_lines[i]:excited_state_lines[i+1]]:
+            if re.search(r'->', line) or re.search(r'<-', line):
+                character.append([float(x) for x in re.findall(r'-?\d+\.?\d+', line)])
+                
+        transition_characters.append(character)
+                    
     
     for enum, line in enumerate(lines):
         total_energy_match = re.findall(r'SCF Done:  E', line)
@@ -78,4 +88,5 @@ def read_gaussian(file_name):
                 
     return data_objects.DimerResult(total_energy, 
                                     transition_energies, 
-                                    transition_dipoles)
+                                    transition_dipoles,
+                                    transition_characters)

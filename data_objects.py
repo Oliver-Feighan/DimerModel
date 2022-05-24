@@ -39,13 +39,16 @@ class Structure:
         self.Na_Nc = self.coords[self.Na_index] - self.coords[self.Nc_index]
 
 class DimerResult():
-    def __init__(self, total_energy, excitations, transition_dipoles):
+    def __init__(self, total_energy, excitations, transition_dipoles, transition_characters):
         self.total_energy = total_energy
         
         self.excitations = excitations
         self.state_energies = [total_energy + x for x in self.excitations]
         
         self.transition_dipoles = transition_dipoles
+        
+        self.transition_characters = transition_characters
+        
         
 class MonomerResult():
     
