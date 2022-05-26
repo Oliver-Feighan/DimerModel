@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH --job-name=CAMB3LYP_ground_origin
+#SBATCH --time=0-02:00:00
+#SBATCH --output=CAMB3LYP_ground_origin.out
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=24
+#SBATCH --mem=80G
+
+# Job information
+echo "Host:    $(hostname)"
+echo "Time:    $(date)"
+echo "Dir:     $(pwd)"
+echo "Job ID:  ${SLURM_JOB_ID}"
+echo "Nodelist:"
+echo "  $(cat "${SLURM_JOB_NODELIST}" | uniq)"
+
+echo "Result dir: ${SLURM_SUBMIT_DIR}"
+
+module load apps/gaussian/16
+
+g16 < CAMB3LYP_ground_origin.com > CAMB3LYP_ground_origin.log
